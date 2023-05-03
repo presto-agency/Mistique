@@ -1,0 +1,59 @@
+h1 {
+  font-size: 4.8rem;
+  line-height: 110%;
+  font-weight: 400;
+  @media (max-width: $mob) {
+    font-size: 3.6rem;
+  }
+}
+
+h2 {
+  font-size: 3.2rem;
+  line-height: 130%;
+  font-weight: 500;
+  @media (max-width: $mob) {
+    font-size: 2.4rem;
+  }
+}
+
+h3 {
+  font-size: 2.4rem;
+  line-height: 120%;
+  font-weight: 500;
+  @media (max-width: $mob) {
+    max-width: 1.8rem;
+  }
+}
+
+p {
+  font-family: "Inter";
+  font-size: 1.8rem;
+  line-height: 155%;
+  font-weight: 400;
+
+  small {
+    font-size: 1.6rem;
+    line-height: 175%;
+  }
+
+  strong {
+    font-size: 2rem;
+    line-height: 150%;
+  }
+
+  @media (max-width: $mob) {
+    font-size: 1.4rem;
+    line-height: 170%;
+
+    small {
+      font-size: 1.2rem;
+      line-height: 170%;
+    }
+
+    strong {
+      font-size: 1.4rem;
+      line-height: 170%;
+      font-weight: 600;
+    }
+  }
+}

@@ -2,5 +2,26 @@ $fontfamily: "EBGaramond", sans-serif;
 $minwidth: 320px;
 
 //colors:
+$color-primary: #BAA1C6;
+$color-secondary: #131039;
+$color-fon: #0A0821;
+$color-black:#191919;
+$color-gray-800: #8C8C8C;
+$color-gray-700: #D1D1D1;
+$color-gray-600: #DDDDDD;
+$color-gray-500: #E8E8E8;
+$color-gray-400: #F3F3F3;
+$color-gray-300: #F9F9F9;
+$color-white: #FFFFFF;
+
+//bg:
+$bg-purple: radial-gradient(54.97% 55.41% at 50% 50.31%, #4F2384 0%, #4B2280 31%, #402175 59%, #2D1E64 86%, #211D58 100%);
+
+//breakpoints:
+$mob: 567px;
+$desktop: 568px;
+$desktop-x: 1199px;
+$desktop-l: 1200px;
+$desktop-xl: 1536px;
 
 

@@ -10,6 +10,9 @@ export default function Home() {
         <h1>
           hello world
         </h1>
+        <p>
+          hello <strong>hello</strong><small>hello</small>
+        </p>
       </main>
     </>
   )

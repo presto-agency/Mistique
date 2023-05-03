@@ -1,0 +1,21 @@
+html {
+  font-size: calc(100vw / 1440 * 10);
+
+  @media (max-width: $mob) {
+    font-size: calc(100vw / 360 * 10);
+  }
+
+  @media (min-width: $desktop-xl) {
+    font-size: 10px;
+  }
+}
+
+.container {
+  max-width: 144rem;
+  padding: 0 6.4rem;
+  margin: 0 auto;
+
+  @media (max-width: $mob) {
+    padding: 0 2.4rem;
+  }
+}
