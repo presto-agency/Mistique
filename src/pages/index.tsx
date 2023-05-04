@@ -1,19 +1,15 @@
 import Head from 'next/head'
+import {MainLayout} from "@/components/MainLayout";
 
 export default function Home() {
   return (
-    <>
-      <Head>
-        <title>Mistique Tarro</title>
-      </Head>
-      <main>
+    <MainLayout title={"page 1"}>
         <h1>
           hello world
         </h1>
         <p>
           hello <strong>hello</strong><small>hello</small>
         </p>
-      </main>
-    </>
+    </MainLayout>
   )
 }

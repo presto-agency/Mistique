@@ -10,6 +10,13 @@ html {
   }
 }
 
+body{
+  background-color: $color-fon;
+  background-image: url("/images/noise.png");
+  background-repeat: repeat;
+  background-size: 5rem 5rem;
+}
+
 .container {
   max-width: 144rem;
   padding: 0 6.4rem;
