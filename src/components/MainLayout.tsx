@@ -1,7 +1,13 @@
 import Head from "next/head";
+import {ReactNode} from "react";
 
-export function MainLayout({children, title='Mistique Tarro'}) {
-  return(
+type MainLayoutProps = {
+  children: ReactNode;
+  title: string;
+};
+
+export function MainLayout({children, title = 'Mistique Tarro'}: MainLayoutProps) {
+  return (
     <>
       <Head>
         <title>
