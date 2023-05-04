@@ -1,5 +1,6 @@
 import Head from "next/head";
 import {ReactNode} from "react";
+import Footer from "@/components/Footer/Footer";
 
 type MainLayoutProps = {
   children: ReactNode;
@@ -19,6 +20,7 @@ export function MainLayout({children, title = 'Mistique Tarro'}: MainLayoutProps
       <main>
         {children}
       </main>
+      <Footer/>
     </>
   )
 }

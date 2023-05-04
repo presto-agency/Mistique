@@ -1,0 +1,23 @@
+@import "../../styles/variables.scss";
+
+.footer {
+  background-image: url("/images/footer/cloud.png");
+  background-size: 100% 100%;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  padding: 23.4rem 0 3rem;
+
+  &__content {
+    text-align: center;
+
+    img {
+      height: 5.2rem;
+      width: auto;
+      margin: 0 0 2rem 0;
+    }
+
+    h2, p, a {
+      color: $color-secondary;
+    }
+  }
+}
