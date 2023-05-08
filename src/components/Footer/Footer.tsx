@@ -1,7 +1,8 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import * as styles from "./footer.module.scss";
 import Link from "next/link";
 import Button from "@/components/UI/Button/Button";
+import {mobSize} from "@/pages/globalVars";
 
 
 const Footer = () => {
@@ -50,6 +51,12 @@ const Footer = () => {
     },
   ];
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+      setIsMobile(window.innerWidth < mobSize);
+  }, []);
+
   return (
     <>
       <footer className={styles.footer}>
@@ -69,7 +76,8 @@ const Footer = () => {
                   </li>
                 ))}
               </ul>
-              <Button className={'button footer'} title={'Get answers - Tarot reading now!'}/>
+              <Button className={isMobile ? 'button button-dark' : 'button'}
+                      title={'Get answers - Tarot reading now!'}/>
             </div>
             <div className={styles.footer__content_bottom}>
               <ul>

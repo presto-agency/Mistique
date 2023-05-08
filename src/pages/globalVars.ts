@@ -1,0 +1,1 @@
+export const mobSize: number = 567;

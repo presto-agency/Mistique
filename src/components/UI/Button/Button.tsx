@@ -1,10 +1,11 @@
 import React from 'react';
+import Link from "next/link";
 
 const Button = ({title, className}: string) => {
   return (
-    <button className={className}>
+    <Link href='#' className={className}>
       {title}
-    </button>
+    </Link>
   );
 };
 

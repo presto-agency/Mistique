@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <MainLayout title={"Home page"}>
       <h1>
-        hello world
+        Main content
       </h1>
     </MainLayout>
   )

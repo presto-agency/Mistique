@@ -32,9 +32,11 @@
   }
 
   &__content {
+    position: relative;
+    z-index: 2;
     text-align: center;
 
-    h2, p, a {
+    h2, p {
       color: $color-secondary;
     }
 
