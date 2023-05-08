@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import * as styles from "./footer.module.scss";
 import Link from "next/link";
 import Button from "@/components/UI/Button/Button";
-import {mobSize} from "@/pages/globalVars";
+import {useClassMobile} from "@/hooks/useClassMobile";
 
 
 const Footer = () => {
@@ -51,11 +51,7 @@ const Footer = () => {
     },
   ];
 
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-      setIsMobile(window.innerWidth < mobSize);
-  }, []);
+  const isMobile = useClassMobile(false);
 
   return (
     <>
@@ -94,7 +90,8 @@ const Footer = () => {
           </div>
         </div>
       </footer>
-      {/*<img src="/images/footer/curtain.png" className="curtain bottom"></img>*/}
+      <img src={isMobile ? "/images/curtain-bottom-mob.png" : "/images/curtain-bottom.png"}
+           className="curtain curtain-bottom"></img>
     </>
   );
 };
