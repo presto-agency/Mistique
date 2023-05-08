@@ -69,7 +69,7 @@ const Footer = () => {
                   </li>
                 ))}
               </ul>
-              <Button title={'Get answers - Tarot reading now!'}/>
+              <Button className={'button footer'} title={'Get answers - Tarot reading now!'}/>
             </div>
             <div className={styles.footer__content_bottom}>
               <ul>

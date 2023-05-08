@@ -2,30 +2,32 @@
 
 .footer {
   position: relative;
+  overflow: hidden;
   z-index: 10;
   padding: 23.4rem 0 2.7rem;
 
   &:before, &:after {
     content: '';
     position: absolute;
-    bottom: 0;
     opacity: .4;
-    height: 48.5rem;
+    width: 43.7rem;
     background-repeat: no-repeat;
     background-position: center;
   }
 
   &:before {
-    left: 0;
-    width: 36rem;
-    background-size: 36rem 48.5rem;
+    left: -8rem;
+    bottom: -15rem;
+    height: 63.4rem;
+    background-size: 43.7rem 63.4rem;
     background-image: url("/images/footer/girl.svg");
   }
 
   &:after {
-    right: 0;
-    width: 37.9rem;
-    background-size: 37.9rem 48.5rem;
+    right: -6rem;
+    bottom: -19rem;
+    height: 67.7rem;
+    background-size: 47.7rem 67.7rem;
     background-image: url("/images/footer/boy.svg");
   }
 
@@ -92,6 +94,53 @@
       p {
         font-size: 1.2rem;
         line-height: 175%;
+      }
+    }
+  }
+}
+
+@media (max-width: $mob) {
+  .footer {
+    padding: 10.2rem 0 2.2rem;
+
+    &:before {
+      left: -31rem;
+      bottom: -8rem;
+    }
+
+    &:after {
+      right: -30rem;
+      bottom: -7rem;
+    }
+
+    &__content {
+      &_top {
+        h2 {
+          font-size: 3.2rem;
+          margin: 0 0 5.6rem 0;
+        }
+
+        ul {
+          flex-direction: column;
+          margin: 0 0 5.9rem 0;
+
+          li {
+            margin: 0 0 2.4rem 0;
+
+            a {
+              font-size: 1.6rem;
+              line-height: 175%;
+            }
+          }
+        }
+      }
+
+      &_bottom {
+        margin: 7.5rem 0 0 0;
+
+        ul {
+          margin: 0 0 1.2rem 0;
+        }
       }
     }
   }
