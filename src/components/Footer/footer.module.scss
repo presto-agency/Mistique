@@ -1,23 +1,102 @@
 @import "../../styles/variables.scss";
 
 .footer {
-  background-image: url("/images/footer/cloud.png");
-  background-size: 100% 100%;
-  background-position: bottom center;
-  background-repeat: no-repeat;
-  padding: 23.4rem 0 3rem;
+  position: relative;
+  z-index: 10;
+  padding: 23.4rem 0 2.7rem;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    opacity: .4;
+    width: 36rem;
+    height: 48.5rem;
+    background-image: url("/images/footer/girl.svg");
+    background-size: 36rem 48.5rem;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    opacity: .4;
+    bottom: 0;
+    width: 36rem;
+    height: 48.5rem;
+    background-image: url("/images/footer/boy.svg");
+    background-size: 36rem 48.5rem;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
 
   &__content {
     text-align: center;
 
-    img {
-      height: 5.2rem;
-      width: auto;
-      margin: 0 0 2rem 0;
-    }
-
     h2, p, a {
       color: $color-secondary;
+    }
+
+    &_top {
+      > a {
+        display: inline-block;
+        margin: 0 0 2rem 0;
+
+        img {
+          height: 5.2rem;
+          width: auto;
+        }
+      }
+
+      h2 {
+        margin: 0 0 2.4rem 0;
+      }
+
+      ul {
+        display: flex;
+        justify-content: center;
+        margin: 0 0 4.8rem 0;
+
+        li {
+          margin: 0 3.2rem 0 0;
+
+          &:last-child {
+            margin: 0;
+          }
+        }
+      }
+    }
+
+    &_bottom {
+      margin: 6.9rem 0 0 0;
+
+      ul {
+        display: flex;
+        justify-content: center;
+        margin: 0 0 8px 0;
+
+        li {
+          margin: 0 1.6rem 0 0;
+
+          a {
+            font-family: 'Inter';
+            font-size: 1.2rem;
+            line-height: 175%;
+          }
+
+          &:last-child {
+            margin: 0;
+          }
+        }
+      }
+
+      p {
+        font-size: 1.2rem;
+        line-height: 175%;
+      }
     }
   }
 }

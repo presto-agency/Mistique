@@ -51,34 +51,43 @@ const Footer = () => {
   ];
 
   return (
-    <footer className={styles.footer}>
-      <div className="container">
-        <div className={styles.footer__content}>
-          <img src="/images/footer/eye.svg" alt="picture"/>
-          <h2>
-            Join Mystique
-          </h2>
-          <ul>
-            {topNav.map(item => (
-              <li key={item.id}>
-                <Link href={item.url}>{item.title}</Link>
-              </li>
-            ))}
-          </ul>
-          <Button title={'Get answers - Tarot reading now!'}/>
-          <ul>
-            {bottomNav.map(item => (
-              <li key={item.id}>
-                <Link href={item.url}>{item.title}</Link>
-              </li>
-            ))}
-          </ul>
-          <p>
-            © 2023 Untitled UI. All rights reserved.
-          </p>
+    <>
+      <footer className={styles.footer}>
+        <div className="container">
+          <div className={styles.footer__content}>
+            <div className={styles.footer__content_top}>
+              <a href="#">
+                <img src="/images/footer/eye.svg" alt="picture"/>
+              </a>
+              <h2>
+                Join Mystique
+              </h2>
+              <ul>
+                {topNav.map(item => (
+                  <li className="nav-link" key={item.id}>
+                    <Link href={item.url}>{item.title}</Link>
+                  </li>
+                ))}
+              </ul>
+              <Button title={'Get answers - Tarot reading now!'}/>
+            </div>
+            <div className={styles.footer__content_bottom}>
+              <ul>
+                {bottomNav.map(item => (
+                  <li className="nav-link" key={item.id}>
+                    <Link href={item.url}>{item.title}</Link>
+                  </li>
+                ))}
+              </ul>
+              <p>
+                © 2023 Untitled UI. All rights reserved.
+              </p>
+            </div>
+          </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+      {/*<img src="/images/footer/curtain.png" className="curtain bottom"></img>*/}
+    </>
   );
 };
 

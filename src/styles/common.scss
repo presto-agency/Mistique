@@ -10,11 +10,20 @@ html {
   }
 }
 
-body{
-  background-color: $color-fon;
+body {
+  //background-color: $color-fon;
   background-image: url("/images/noise.png");
   background-repeat: repeat;
   background-size: 5rem 5rem;
+}
+
+img {
+  max-width: 100%;
+}
+
+.wrapper {
+  overflow: hidden;
+  min-height: 100%;
 }
 
 .container {
@@ -24,5 +33,23 @@ body{
 
   @media (max-width: $mob) {
     padding: 0 2.4rem;
+  }
+}
+
+.curtain {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.nav-link {
+  a {
+    @media (min-width: $desktop-l) {
+      &:hover {
+        text-decoration: underline;
+        text-decoration-color: $color-secondary;
+        text-underline-offset: 0.5rem;
+      }
+    }
   }
 }
