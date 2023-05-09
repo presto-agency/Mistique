@@ -3,6 +3,31 @@
 .header {
   padding: 3.1rem 0 14.8rem;
 
+  &.active {
+    .header {
+      &__content {
+        &_burger {
+          span {
+            &:nth-child(1) {
+              top: 50%;
+              transform: translateX(-50%) translateY(-50%) rotateZ(45deg);
+            }
+
+            &:nth-child(2) {
+              left: -10px;
+              opacity: 0;
+            }
+
+            &:nth-child(3) {
+              bottom: 50%;
+              transform: translateX(-50%) translateY(50%) rotateZ(-45deg);
+            }
+          }
+        }
+      }
+    }
+  }
+
   &__content {
     display: flex;
     justify-content: space-between;
@@ -30,6 +55,7 @@
 
       span {
         position: absolute;
+        transition: 500ms;
         left: 50%;
         width: 1.6rem;
         height: 0.2rem;
