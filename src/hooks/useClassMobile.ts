@@ -6,7 +6,7 @@ export const useClassMobile = (initialValue) => {
 
   useEffect(() => {
     function handleResize() {
-      setIsMobile(window.innerWidth < mobSize);
+      setIsMobile(window.innerWidth <= mobSize);
     }
 
     handleResize();
