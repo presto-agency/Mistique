@@ -7,6 +7,9 @@ import {useClassMobile} from "@/hooks/useClassMobile";
 
 const Header = () => {
   const isMobile = useClassMobile(false);
+  const headerActive = () => {
+    console.log('hi')
+  }
 
   return (
     <>
@@ -18,17 +21,17 @@ const Header = () => {
         <div className="container">
           {isMobile
             ? <nav className={styles.header__content}>
-                <Link className={styles.logoMobile} href='/'>
+                <Link className={styles.header__content_logo} href='/'>
                   <img src="/images/eye.svg" alt="logo"/>
                 </Link>
-                <div className={styles.burger}>
+                <div className={styles.header__content_burger}>
                   <span></span>
                   <span></span>
                   <span></span>
                 </div>
               </nav>
             : <nav className={styles.header__content}>
-                <Link className={styles.logo} href='/'>Join Mystique</Link>
+                <Link className={styles.header__content_text} href='/'>Join Mystique</Link>
                 <div className={styles.header__content_links}>
                   <Button className={'button _small'} title={'Go Tarot'}/>
                   <Button className={'button _small _icon button-dark'} title={'Menu'}/>
