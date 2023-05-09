@@ -11,7 +11,7 @@ const Header = () => {
       <header className={styles.header}>
         <div className="container">
           <nav className={styles.header__content}>
-            <Link href='/'>
+            <Link className={styles.logo} href='/'>
               Join Mystique
             </Link>
             <div className={styles.header__content_links}>

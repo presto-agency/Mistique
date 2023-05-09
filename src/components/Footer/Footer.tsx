@@ -59,9 +59,9 @@ const Footer = () => {
         <div className="container">
           <div className={styles.footer__content}>
             <div className={styles.footer__content_top}>
-              <a href="#">
+              <Link className={styles.logo} href="#">
                 <img src="/images/footer/eye.svg" alt="picture"/>
-              </a>
+              </Link>
               <h2>
                 Join Mystique
               </h2>

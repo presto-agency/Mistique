@@ -1,4 +1,5 @@
 .button {
+  display: inline-block;
   font-family: 'EBGaramond';
   transition: 500ms;
   background-color: transparent;
@@ -7,7 +8,7 @@
   color: $color-secondary;
   border: 2px solid $color-secondary;
   border-radius: 4.8rem;
-  padding: 1.2rem 5.4rem;
+  padding: 1.1rem 5.4rem;
 
   &._small {
     font-size: 1.6rem;

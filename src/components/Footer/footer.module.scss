@@ -41,7 +41,7 @@
     }
 
     &_top {
-      > a {
+      .logo {
         display: inline-block;
         margin: 0 0 2rem 0;
 
@@ -62,6 +62,11 @@
 
         li {
           margin: 0 3.2rem 0 0;
+
+          a{
+            font-size: 1.6rem;
+            line-height: 175%;
+          }
 
           &:last-child {
             margin: 0;
