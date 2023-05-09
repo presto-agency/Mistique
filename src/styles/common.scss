@@ -42,10 +42,15 @@ img {
   left: 0;
   width: 100vw;
   max-width: 100vw;
-  &-top{
+
+  &-top {
     top: 0;
+    @media (max-width: $mob) {
+      top: -82%;
+    }
   }
-  &-bottom{
+
+  &-bottom {
     bottom: 0;
   }
 }

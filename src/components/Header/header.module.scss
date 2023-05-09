@@ -16,10 +16,56 @@
       font-family: 'EBGaramond';
     }
 
+    .logoMobile {
+      width: 4.2rem;
+      height: 3.4rem;
+    }
+
+    .burger {
+      position: relative;
+      width: 3.2rem;
+      height: 3.2rem;
+      border-radius: 50%;
+      background-color: $color-secondary;
+
+      span {
+        position: absolute;
+        left: 50%;
+        width: 1.6rem;
+        height: 0.2rem;
+        border-radius: 7px;
+        background-color: $color-primary;
+        transform: translateX(-50%);
+
+        &:nth-child(1) {
+          top: 1rem;
+        }
+
+        &:nth-child(2) {
+          top: 50%;
+          transform: translateY(-50%) translateX(-50%);
+        }
+
+        &:nth-child(3) {
+          bottom: 1rem;
+        }
+      }
+    }
+
     &_links {
-      a + a{
+      a + a {
         margin: 0 0 0 1.4rem;
       }
+    }
+  }
+}
+
+@media (max-width: $mob) {
+  .header {
+    padding: 1.5rem 0 5.1rem;
+
+    &__content {
+      align-items: center;
     }
   }
 }

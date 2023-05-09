@@ -60,7 +60,7 @@ const Footer = () => {
           <div className={styles.footer__content}>
             <div className={styles.footer__content_top}>
               <Link className={styles.logo} href="#">
-                <img src="/images/footer/eye.svg" alt="picture"/>
+                <img src="/images/eye.svg" alt="logo"/>
               </Link>
               <h2>
                 Join Mystique
@@ -90,8 +90,10 @@ const Footer = () => {
           </div>
         </div>
       </footer>
-      <img src={isMobile ? "/images/curtain-bottom-mob.png" : "/images/curtain-bottom.png"}
-           className="curtain curtain-bottom"></img>
+      <img src={isMobile
+        ? "/images/curtain-bottom-mob.png"
+        : "/images/curtain-bottom.png"
+      } className="curtain curtain-bottom"></img>
     </>
   );
 };
