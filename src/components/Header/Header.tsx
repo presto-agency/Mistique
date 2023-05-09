@@ -16,25 +16,25 @@ const Header = () => {
       } className="curtain curtain-top"></img>
       <header className={styles.header}>
         <div className="container">
-          <nav className={styles.header__content}>
-            {isMobile
-              ? <Link className={styles.logoMobile} href='/'>
+          {isMobile
+            ? <nav className={styles.header__content}>
+                <Link className={styles.logoMobile} href='/'>
                   <img src="/images/eye.svg" alt="logo"/>
                 </Link>
-              : <Link className={styles.logo} href='/'>Join Mystique</Link>
-            }
-            {isMobile
-              ? <div className={styles.burger}>
+                <div className={styles.burger}>
                   <span></span>
                   <span></span>
                   <span></span>
                 </div>
-              : <div className={styles.header__content_links}>
+              </nav>
+            : <nav className={styles.header__content}>
+                <Link className={styles.logo} href='/'>Join Mystique</Link>
+                <div className={styles.header__content_links}>
                   <Button className={'button _small'} title={'Go Tarot'}/>
                   <Button className={'button _small _icon button-dark'} title={'Menu'}/>
                 </div>
-            }
-          </nav>
+              </nav>
+          }
         </div>
       </header>
     </>
