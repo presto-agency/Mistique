@@ -3,6 +3,7 @@ import * as styles from "./footer.module.scss";
 import Link from "next/link";
 import Button from "@/components/UI/Button/Button";
 import {useClassMobile} from "@/hooks/useClassMobile";
+import BottomLinks from "@/components/BottomLinks/BottomLinks";
 
 
 const Footer = () => {
@@ -75,18 +76,7 @@ const Footer = () => {
               <Button className={isMobile ? 'button button-dark' : 'button'}
                       title={'Get answers - Tarot reading now!'}/>
             </div>
-            <div className={styles.footer__content_bottom}>
-              <ul>
-                {bottomNav.map(item => (
-                  <li className="nav-link" key={item.id}>
-                    <Link href={item.url}>{item.title}</Link>
-                  </li>
-                ))}
-              </ul>
-              <p>
-                © 2023 Untitled UI. All rights reserved.
-              </p>
-            </div>
+            <BottomLinks bottomNav={bottomNav}/>
           </div>
         </div>
       </footer>

@@ -1,0 +1,40 @@
+@import "../../styles/variables.scss";
+
+.bottom {
+  margin: 6.9rem 0 0 0;
+
+  ul {
+    display: flex;
+    justify-content: center;
+    margin: 0 0 8px 0;
+
+    li {
+      margin: 0 1.6rem 0 0;
+
+      a {
+        font-family: 'Inter';
+        font-size: 1.2rem;
+        line-height: 175%;
+      }
+
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+
+  p {
+    font-size: 1.2rem;
+    line-height: 175%;
+  }
+}
+
+@media (max-width: $mob) {
+  .bottom {
+    margin: 7.5rem 0 0 0;
+
+    ul {
+      margin: 0 0 1.2rem 0;
+    }
+  }
+}

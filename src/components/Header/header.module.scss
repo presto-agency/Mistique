@@ -1,6 +1,8 @@
 @import "../../styles/variables.scss";
 
 .header {
+  position: relative;
+  z-index: 11;
   padding: 3.1rem 0 14.8rem;
 
   &.active {
@@ -81,6 +83,39 @@
     &_links {
       a + a {
         margin: 0 0 0 1.4rem;
+      }
+    }
+
+    &_menu {
+      position: fixed;
+      text-align: center;
+      top: 0;
+      padding: 14.5rem 2.4rem;
+      width: 100vw;
+      max-height: 100%;
+      overflow-y: auto;
+      left: 0;
+      background-color: $color-primary;
+      background-image: url("/images/noise.png");
+      background-repeat: repeat;
+      background-size: 5rem 5rem;
+
+      > ul {
+        margin: 0 0 9.5rem 0;
+        li {
+          margin: 0 0 2.4rem 0;
+
+          &:last-child {
+            margin: 0;
+          }
+
+          a {
+            font-size: 2.4rem;
+            line-height: 120%;
+            font-family: 'EBGaramond';
+            color: $color-secondary;
+          }
+        }
       }
     }
   }
