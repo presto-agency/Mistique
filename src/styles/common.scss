@@ -45,10 +45,8 @@ img {
 
   &-top {
     position: fixed;
+    z-index: 11;
     top: 0;
-    @media (max-width: $mob) {
-      top: -82%;
-    }
   }
 
   &-bottom {

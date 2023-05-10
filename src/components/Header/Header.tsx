@@ -4,10 +4,15 @@ import Link from "next/link";
 import Button from "@/components/UI/Button/Button";
 import {useClassMobile} from "@/hooks/useClassMobile";
 import BottomLinks from "@/components/BottomLinks/BottomLinks";
+// import { motion } from 'framer-motion';
 
 const Header = () => {
   const isMobile = useClassMobile(false);
   const [isActive, setIsActive] = useState<boolean>(false);
+  // const variants = {
+  //   closed: { maxHeight: 0 },
+  //   open: { maxHeight: '100%' },
+  // };
   const topNav = [
     {
       id: 1,
@@ -63,7 +68,10 @@ const Header = () => {
 
   return (
     <>
-      {!isMobile && <img src="/images/curtain-top.png" className="curtain curtain-top"></img>}
+      {<img src={isMobile
+        ? "/images/curtain-top-mob.png"
+        : "/images/curtain-top.png"
+      } className="curtain curtain-top"></img>}
       <header className={`${styles.header} ${isActive ? styles.active : ''}`}>
         <div className="container">
           {isMobile
@@ -73,16 +81,18 @@ const Header = () => {
               </Link>
               <div className={styles.menu}>
                 <div className={styles.menu__wrapper}>
-                  <ul>
-                    {topNav.map(item => (
-                      <li key={item.id}>
-                        <Link href={item.url}>{item.title}</Link>
-                      </li>
-                    ))}
-                  </ul>
-                  <Button className={isMobile ? 'button button-dark' : 'button'}
-                          title={'Get answers - Tarot reading now!'}/>
-                  <BottomLinks bottomNav={bottomNav}/>
+                  <div className={styles.menu__wrapper_container}>
+                    <ul>
+                      {topNav.map(item => (
+                        <li key={item.id}>
+                          <Link href={item.url}>{item.title}</Link>
+                        </li>
+                      ))}
+                    </ul>
+                    <Button className={isMobile ? 'button button-dark' : 'button'}
+                            title={'Get answers - Tarot reading now!'}/>
+                    <BottomLinks bottomNav={bottomNav}/>
+                  </div>
                 </div>
               </div>
               <div onClick={headerActive} className={styles.header__content_burger}>
