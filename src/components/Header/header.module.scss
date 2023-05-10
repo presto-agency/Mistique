@@ -30,13 +30,13 @@
           }
         }
 
-        .menu {
-          &__wrapper {
-            &_container {
-              max-height: 100%;
-            }
-          }
-        }
+        //.menu {
+        //  &__wrapper {
+        //    &_container {
+        //      max-height: 100%;
+        //    }
+        //  }
+        //}
       }
     }
   }
@@ -128,7 +128,6 @@
         }
 
         &_container {
-          max-height: 0;
           overflow: hidden;
           background-color: $color-primary;
           background-image: url("/images/noise.png");

@@ -4,15 +4,16 @@ import Link from "next/link";
 import Button from "@/components/UI/Button/Button";
 import {useClassMobile} from "@/hooks/useClassMobile";
 import BottomLinks from "@/components/BottomLinks/BottomLinks";
-// import { motion } from 'framer-motion';
+import {motion} from 'framer-motion';
 
 const Header = () => {
   const isMobile = useClassMobile(false);
   const [isActive, setIsActive] = useState<boolean>(false);
-  // const variants = {
-  //   closed: { maxHeight: 0 },
-  //   open: { maxHeight: '100%' },
-  // };
+  const variants = {
+    closed: {height: 0},
+    open: {height: "auto"},
+  };
+
   const topNav = [
     {
       id: 1,
@@ -81,7 +82,11 @@ const Header = () => {
               </Link>
               <div className={styles.menu}>
                 <div className={styles.menu__wrapper}>
-                  <div className={styles.menu__wrapper_container}>
+                  <motion.div className={styles.menu__wrapper_container}
+                              variants={variants}
+                              animate={isActive ? 'open' : 'closed'}
+                              transition={{duration: 0.5}}
+                  >
                     <ul>
                       {topNav.map(item => (
                         <li key={item.id}>
@@ -92,7 +97,7 @@ const Header = () => {
                     <Button className={isMobile ? 'button button-dark' : 'button'}
                             title={'Get answers - Tarot reading now!'}/>
                     <BottomLinks bottomNav={bottomNav}/>
-                  </div>
+                  </motion.div>
                 </div>
               </div>
               <div onClick={headerActive} className={styles.header__content_burger}>
