@@ -1,6 +1,7 @@
 @import "../../styles/variables.scss";
 
 .bottom {
+  text-align: center;
   margin: 6.9rem 0 0 0;
 
   ul {
@@ -24,6 +25,7 @@
   }
 
   p {
+    color: $color-secondary;
     font-size: 1.2rem;
     line-height: 175%;
   }

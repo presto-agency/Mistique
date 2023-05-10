@@ -59,18 +59,16 @@ const Header = () => {
 
   return (
     <>
-      <img src={isMobile
-        ? "/images/curtain-top-mob.png"
-        : "/images/curtain-top.png"
-      } className="curtain curtain-top"></img>
+      {!isMobile && <img src="/images/curtain-top.png" className="curtain curtain-top"></img>}
       <header className={`${styles.header} ${isActive ? styles.active : ''}`}>
         <div className="container">
           {isMobile
             ? <nav className={styles.header__content}>
-                <Link className={styles.header__content_logo} href='/'>
+              <Link className={styles.header__content_logo} href='/'>
                 <img src="/images/eye.svg" alt="logo"/>
               </Link>
-                <div className={styles.header__content_menu}>
+              <div className={styles.menu}>
+                <div className={styles.menu__wrapper}>
                   <ul>
                     {topNav.map(item => (
                       <li key={item.id}>
@@ -82,12 +80,13 @@ const Header = () => {
                           title={'Get answers - Tarot reading now!'}/>
                   <BottomLinks bottomNav={bottomNav}/>
                 </div>
-                <div onClick={headerActive} className={styles.header__content_burger}>
+              </div>
+              <div onClick={headerActive} className={styles.header__content_burger}>
                 <span></span>
                 <span></span>
                 <span></span>
               </div>
-              </nav>
+            </nav>
             : <nav className={styles.header__content}>
               <Link className={styles.header__content_text} href='/'>Join Mystique</Link>
               <div className={styles.header__content_links}>
