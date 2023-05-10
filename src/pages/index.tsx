@@ -6,6 +6,45 @@ export default function Home() {
       <h1>
         Main content
       </h1>
+      <h1>
+        Main content
+      </h1>
+      <h1>
+        Main content
+      </h1>
+      <h1>
+        Main content
+      </h1>
+      <h1>
+        Main content
+      </h1>
+      <h1>
+        Main content
+      </h1>
+      <h1>
+        Main content
+      </h1>
+      <h1>
+        Main content
+      </h1>
+      <h1>
+        Main content
+      </h1>
+      <h1>
+        Main content
+      </h1>
+      <h1>
+        Main content
+      </h1>
+      <h1>
+        Main content
+      </h1>
+      <h1>
+        Main content
+      </h1>
+      <h1>
+        Main content
+      </h1>
     </MainLayout>
   )
 }

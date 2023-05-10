@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import * as styles from "./header.module.scss";
 import Link from "next/link";
 import Button from "@/components/UI/Button/Button";
@@ -54,8 +54,12 @@ const Header = () => {
   ];
 
   const headerActive = () => {
-    setIsActive(prevState => !prevState);
+    setIsActive((prevState) => !prevState);
   }
+
+  useEffect(() => {
+    document.body.style.overflow = isActive ? "hidden" : "auto";
+  }, [isActive]);
 
   return (
     <>
