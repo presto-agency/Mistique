@@ -1,7 +1,12 @@
 import React from "react";
 import Link from "next/link";
 
-const Button = ({title, className}: string) => {
+interface Button{
+  title: string,
+  className: string
+}
+
+const Button = ({title, className}: Button) => {
   return (
     <Link href="#" className={className}>
       {title}

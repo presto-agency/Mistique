@@ -1,8 +1,15 @@
 import React from "react";
-import * as styles from "./bottomLinks.module.scss";
+import styles from "./bottomLinks.module.scss";
 import Link from "next/link";
+import {Links} from "@/exports/globalVars";
 
-const BottomLinks = ({bottomNav}) => {
+interface BottomNav {
+  bottomNav: Links[]
+}
+
+
+
+const BottomLinks = ({bottomNav}:BottomNav)=> {
   return (
     <div className={styles.bottom}>
       <ul>

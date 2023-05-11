@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
-import {mobSize} from "@/pages/globalVars";
+import {mobSize} from "@/exports/globalVars";
 
-export const useClassMobile = (initialValue) => {
+export const useClassMobile = (initialValue:boolean) => {
   const [isMobile, setIsMobile] = useState(initialValue);
 
   useEffect(() => {

@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from "react";
-import * as styles from "./header.module.scss";
+import styles from "./header.module.scss";
 import Link from "next/link";
 import Button from "@/components/UI/Button/Button";
 import {useClassMobile} from "@/hooks/useClassMobile";
 import BottomLinks from "@/components/BottomLinks/BottomLinks";
 import {motion} from "framer-motion";
+import {Links} from "@/exports/globalVars";
 
 const Header = () => {
   const isMobile = useClassMobile(false);
@@ -36,7 +37,7 @@ const Header = () => {
       filter: "blur(10px)"
     },
   };
-  const topNav = [
+  const topNav= [
     {
       id: 1,
       url: "/",
@@ -63,7 +64,7 @@ const Header = () => {
       title: "Privacy"
     },
   ];
-  const bottomNav = [
+  const bottomNav= [
     {
       id: 1,
       url: "/Terms",
