@@ -5,7 +5,6 @@ import Button from "@/components/UI/Button/Button";
 import {useClassMobile} from "@/hooks/useClassMobile";
 import BottomLinks from "@/components/BottomLinks/BottomLinks";
 import {motion} from "framer-motion";
-import {Links} from "@/exports/globalVars";
 
 const Header = () => {
   const isMobile = useClassMobile(false);

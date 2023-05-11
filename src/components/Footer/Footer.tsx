@@ -4,7 +4,6 @@ import Link from "next/link";
 import Button from "@/components/UI/Button/Button";
 import {useClassMobile} from "@/hooks/useClassMobile";
 import BottomLinks from "@/components/BottomLinks/BottomLinks";
-import {Links} from "@/exports/globalVars";
 
 
 const Footer = () => {

@@ -8,7 +8,6 @@ interface BottomNav {
 }
 
 
-
 const BottomLinks = ({bottomNav}:BottomNav)=> {
   return (
     <div className={styles.bottom}>
