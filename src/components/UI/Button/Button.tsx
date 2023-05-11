@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 import Link from "next/link";
 
 const Button = ({title, className}: string) => {
   return (
-    <Link href='#' className={className}>
+    <Link href="#" className={className}>
       {title}
     </Link>
   );

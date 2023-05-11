@@ -8,7 +8,7 @@ type MainLayoutProps = {
   title: string;
 };
 
-export function MainLayout({children, title = 'Mistique Tarro'}: MainLayoutProps) {
+export function MainLayout({children, title = "Mistique Tarro"}: MainLayoutProps) {
   return (
     <>
       <Head>

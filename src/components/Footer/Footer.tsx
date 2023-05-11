@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import * as styles from "./footer.module.scss";
 import Link from "next/link";
 import Button from "@/components/UI/Button/Button";
@@ -10,45 +10,45 @@ const Footer = () => {
   const topNav = [
     {
       id: 1,
-      url: '/',
-      title: 'Home'
+      url: "/",
+      title: "Home"
     },
     {
       id: 2,
-      url: '/TarotReading',
-      title: 'Tarot reading'
+      url: "/TarotReading",
+      title: "Tarot reading"
     },
     {
       id: 3,
-      url: '/Blog',
-      title: 'Blog'
+      url: "/Blog",
+      title: "Blog"
     },
     {
       id: 4,
-      url: '/Help',
-      title: 'Help'
+      url: "/Help",
+      title: "Help"
     },
     {
       id: 5,
-      url: '/Privacy',
-      title: 'Privacy'
+      url: "/Privacy",
+      title: "Privacy"
     },
   ];
   const bottomNav = [
     {
       id: 1,
-      url: '/Terms',
-      title: 'Terms'
+      url: "/Terms",
+      title: "Terms"
     },
     {
       id: 2,
-      url: '/Privacy',
-      title: 'Privacy'
+      url: "/Privacy",
+      title: "Privacy"
     },
     {
       id: 3,
-      url: '/Cookies',
-      title: 'Cookies'
+      url: "/Cookies",
+      title: "Cookies"
     },
   ];
 
@@ -73,8 +73,8 @@ const Footer = () => {
                   </li>
                 ))}
               </ul>
-              <Button className={isMobile ? 'button button-dark' : 'button'}
-                      title={'Get answers - Tarot reading now!'}/>
+              <Button className={isMobile ? "button button-dark" : "button"}
+                      title={"Get answers - Tarot reading now!"}/>
             </div>
             <BottomLinks bottomNav={bottomNav}/>
           </div>

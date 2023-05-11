@@ -1,10 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState} from "react";
 import * as styles from "./header.module.scss";
 import Link from "next/link";
 import Button from "@/components/UI/Button/Button";
 import {useClassMobile} from "@/hooks/useClassMobile";
 import BottomLinks from "@/components/BottomLinks/BottomLinks";
-import {motion} from 'framer-motion';
+import {motion} from "framer-motion";
 
 const Header = () => {
   const isMobile = useClassMobile(false);
@@ -13,49 +13,48 @@ const Header = () => {
     closed: {height: 0},
     open: {height: "auto"},
   };
-
   const topNav = [
     {
       id: 1,
-      url: '/',
-      title: 'Home'
+      url: "/",
+      title: "Home"
     },
     {
       id: 2,
-      url: '/TarotReading',
-      title: 'Tarot reading'
+      url: "/TarotReading",
+      title: "Tarot reading"
     },
     {
       id: 3,
-      url: '/Blog',
-      title: 'Blog'
+      url: "/Blog",
+      title: "Blog"
     },
     {
       id: 4,
-      url: '/Help',
-      title: 'Help'
+      url: "/Help",
+      title: "Help"
     },
     {
       id: 5,
-      url: '/Privacy',
-      title: 'Privacy'
+      url: "/Privacy",
+      title: "Privacy"
     },
   ];
   const bottomNav = [
     {
       id: 1,
-      url: '/Terms',
-      title: 'Terms'
+      url: "/Terms",
+      title: "Terms"
     },
     {
       id: 2,
-      url: '/Privacy',
-      title: 'Privacy'
+      url: "/Privacy",
+      title: "Privacy"
     },
     {
       id: 3,
-      url: '/Cookies',
-      title: 'Cookies'
+      url: "/Cookies",
+      title: "Cookies"
     },
   ];
 
@@ -73,7 +72,7 @@ const Header = () => {
         ? "/images/curtain-top-mob.png"
         : "/images/curtain-top.png"
       } className="curtain curtain-top"></img>}
-      <header className={`${styles.header} ${isActive ? styles.active : ''}`}>
+      <header className={`${styles.header} ${isActive ? styles.active : ""}`}>
         <div className="container">
           {isMobile
             ? <nav className={styles.header__content}>
@@ -84,7 +83,7 @@ const Header = () => {
                 <div className={styles.menu__wrapper}>
                   <motion.div className={styles.menu__wrapper_container}
                               variants={variants}
-                              animate={isActive ? 'open' : 'closed'}
+                              animate={isActive ? "open" : "closed"}
                               transition={{duration: 0.5}}
                   >
                     <ul>
@@ -94,8 +93,10 @@ const Header = () => {
                         </li>
                       ))}
                     </ul>
-                    <Button className={isMobile ? 'button button-dark' : 'button'}
-                            title={'Get answers - Tarot reading now!'}/>
+                    <Button className={isMobile
+                      ? "button button-dark"
+                      : "button"}
+                      title={"Get answers - Tarot reading now!"}/>
                     <BottomLinks bottomNav={bottomNav}/>
                   </motion.div>
                 </div>
@@ -107,10 +108,10 @@ const Header = () => {
               </div>
             </nav>
             : <nav className={styles.header__content}>
-              <Link className={styles.header__content_text} href='/'>Join Mystique</Link>
+              <Link className={styles.header__content_text} href="/">Join Mystique</Link>
               <div className={styles.header__content_links}>
-                <Button className={'button _small'} title={'Go Tarot'}/>
-                <Button className={'button _small _icon button-dark'} title={'Menu'}/>
+                <Button className={"button _small"} title={"Go Tarot"}/>
+                <Button className={"button _small _icon button-dark"} title={"Menu"}/>
               </div>
             </nav>
           }

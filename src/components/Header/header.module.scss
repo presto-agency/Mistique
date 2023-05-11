@@ -29,14 +29,6 @@
             }
           }
         }
-
-        //.menu {
-        //  &__wrapper {
-        //    &_container {
-        //      max-height: 100%;
-        //    }
-        //  }
-        //}
       }
     }
   }
@@ -50,7 +42,7 @@
       color: $color-secondary;
       font-size: 2.4rem;
       line-height: 120%;
-      font-family: 'EBGaramond';
+      font-family: "EBGaramond";
     }
 
     &_logo {
@@ -149,7 +141,7 @@
               a {
                 font-size: 2.4rem;
                 line-height: 120%;
-                font-family: 'EBGaramond';
+                font-family: "EBGaramond";
                 color: $color-secondary;
               }
             }
