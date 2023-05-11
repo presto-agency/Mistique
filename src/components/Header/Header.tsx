@@ -10,8 +10,31 @@ const Header = () => {
   const isMobile = useClassMobile(false);
   const [isActive, setIsActive] = useState<boolean>(false);
   const variants = {
-    closed: {height: 0},
+    closed: {
+      height: 0,
+      transition: {
+        delay: 0.5
+      }
+    },
     open: {height: "auto"},
+  };
+  const innerVariants = {
+    hidden: {
+      opacity: 0,
+    },
+    open: {
+      opacity: 1,
+      scale: 1,
+      filter: "blur(0px)",
+      transition: {
+        delay: 0.5
+      }
+    },
+    closed: {
+      opacity: 0,
+      scale: 1.1,
+      filter: "blur(10px)"
+    },
   };
   const topNav = [
     {
@@ -86,18 +109,23 @@ const Header = () => {
                               animate={isActive ? "open" : "closed"}
                               transition={{duration: 0.5}}
                   >
-                    <ul>
-                      {topNav.map(item => (
-                        <li key={item.id}>
-                          <Link href={item.url}>{item.title}</Link>
-                        </li>
-                      ))}
-                    </ul>
-                    <Button className={isMobile
-                      ? "button button-dark"
-                      : "button"}
-                      title={"Get answers - Tarot reading now!"}/>
-                    <BottomLinks bottomNav={bottomNav}/>
+                    <motion.div className={styles.list}
+                                variants={innerVariants}
+                                initial="hidden"
+                                animate={isActive ? "open" : "closed"}>
+                      <ul>
+                        {topNav.map(item => (
+                          <li key={item.id}>
+                            <Link href={item.url}>{item.title}</Link>
+                          </li>
+                        ))}
+                      </ul>
+                      <Button className={isMobile
+                        ? "button button-dark"
+                        : "button"}
+                              title={"Get answers - Tarot reading now!"}/>
+                      <BottomLinks bottomNav={bottomNav}/>
+                    </motion.div>
                   </motion.div>
                 </div>
               </div>
