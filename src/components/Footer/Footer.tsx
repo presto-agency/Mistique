@@ -82,8 +82,8 @@ const Footer = () => {
         </div>
       </footer>
       <img src={isMobile
-        ? "/images/curtain-bottom-mob.png"
-        : "/images/curtain-bottom.png"
+        ? "/images/curtain-bottom-mob.svg"
+        : "/images/curtain-bottom.svg"
       } className="curtain curtain-bottom"></img>
     </>
   );

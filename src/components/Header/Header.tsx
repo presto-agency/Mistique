@@ -92,8 +92,8 @@ const Header = () => {
   return (
     <>
       {<img src={isMobile
-        ? "/images/curtain-top-mob.png"
-        : "/images/curtain-top.png"
+        ? "/images/curtain-top-mob.svg"
+        : "/images/curtain-top.svg"
       } className="curtain curtain-top"></img>}
       <header className={`${styles.header} ${isActive ? styles.active : ""}`}>
         <div className="container">

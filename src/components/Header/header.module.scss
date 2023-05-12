@@ -113,8 +113,8 @@
           height: 12.7rem;
           bottom: -12.7rem;
           left: 0;
-          background-image: url("/images/curtain-top-mob.png");
-          background-size: 100vw 12.7rem;
+          background-image: url("/images/curtain-top-mob.svg");
+          background-size: cover;
           background-position: center;
           background-repeat: no-repeat;
         }
@@ -122,10 +122,6 @@
         &_container {
           overflow: hidden;
           background-color: $color-primary;
-          background-image: url("/images/noise.png");
-          background-repeat: repeat;
-          background-size: 5rem 5rem;
-          padding: 0 2.4rem;
 
           .list {
             > ul {
