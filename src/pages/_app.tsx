@@ -1,6 +1,11 @@
-import type { AppProps } from "next/app"
+import type {AppProps} from "next/app"
 import "../styles/style.scss"
+import Cursor from "@/components/Cursor/Cursor";
 
-export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
-}
+const MyApp = ({Component, pageProps}: AppProps) => {
+  return (
+      <Component {...pageProps} />
+  );
+};
+
+export default MyApp;

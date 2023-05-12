@@ -1,0 +1,15 @@
+.cursor {
+  position: fixed;
+  pointer-events: none;
+  z-index: 12;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+
+  svg {
+    width: 32px;
+    height: 32px;
+  }
+}
