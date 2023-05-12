@@ -1,3 +1,5 @@
+@import "../../styles/variables.scss";
+
 .cursor {
   position: fixed;
   pointer-events: none;
@@ -7,6 +9,9 @@
   display: inline-block;
   width: 32px;
   height: 32px;
+  @media (max-width: $mob) {
+    display: none;
+  }
 
   svg {
     width: 32px;
