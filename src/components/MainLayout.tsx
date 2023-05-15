@@ -10,6 +10,51 @@ type MainLayoutProps = {
 };
 
 export function MainLayout({children, title = "Mistique Tarro"}: MainLayoutProps) {
+  const topNav= [
+    {
+      id: 1,
+      url: "/",
+      title: "Home"
+    },
+    {
+      id: 2,
+      url: "/TarotReading",
+      title: "Tarot reading"
+    },
+    {
+      id: 3,
+      url: "/Blog",
+      title: "Blog"
+    },
+    {
+      id: 4,
+      url: "/Help",
+      title: "Help"
+    },
+    {
+      id: 5,
+      url: "/Privacy",
+      title: "Privacy"
+    },
+  ];
+  const bottomNav= [
+    {
+      id: 1,
+      url: "/Terms",
+      title: "Terms"
+    },
+    {
+      id: 2,
+      url: "/Privacy",
+      title: "Privacy"
+    },
+    {
+      id: 3,
+      url: "/Cookies",
+      title: "Cookies"
+    },
+  ];
+
   return (
     <>
       <Head>
@@ -21,11 +66,11 @@ export function MainLayout({children, title = "Mistique Tarro"}: MainLayoutProps
       </Head>
       <Cursor/>
       <div className="wrapper">
-        <Header/>
+        <Header topNav={topNav} bottomNav={bottomNav}/>
         <main>
           {children}
         </main>
-        <Footer/>
+        <Footer topNav={topNav} bottomNav={bottomNav}/>
       </div>
     </>
   )

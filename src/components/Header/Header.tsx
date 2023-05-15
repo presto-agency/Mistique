@@ -5,8 +5,9 @@ import Button from "@/components/UI/Button/Button";
 import {useClassMobile} from "@/hooks/useClassMobile";
 import BottomLinks from "@/components/BottomLinks/BottomLinks";
 import {motion} from "framer-motion";
+import {Navigation} from "@/exports/globalVars";
 
-const Header = () => {
+const Header = ({topNav, bottomNav}:Navigation) => {
   const isMobile = useClassMobile(false);
   const [isActive, setIsActive] = useState<boolean>(false);
   const variants = {
@@ -36,50 +37,6 @@ const Header = () => {
       filter: "blur(10px)"
     },
   };
-  const topNav= [
-    {
-      id: 1,
-      url: "/",
-      title: "Home"
-    },
-    {
-      id: 2,
-      url: "/TarotReading",
-      title: "Tarot reading"
-    },
-    {
-      id: 3,
-      url: "/Blog",
-      title: "Blog"
-    },
-    {
-      id: 4,
-      url: "/Help",
-      title: "Help"
-    },
-    {
-      id: 5,
-      url: "/Privacy",
-      title: "Privacy"
-    },
-  ];
-  const bottomNav= [
-    {
-      id: 1,
-      url: "/Terms",
-      title: "Terms"
-    },
-    {
-      id: 2,
-      url: "/Privacy",
-      title: "Privacy"
-    },
-    {
-      id: 3,
-      url: "/Cookies",
-      title: "Cookies"
-    },
-  ];
 
   const headerActive = () => {
     setIsActive((prevState) => !prevState);

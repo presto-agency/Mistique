@@ -7,7 +7,6 @@ interface BottomNav {
   bottomNav: Links[]
 }
 
-
 const BottomLinks = ({bottomNav}:BottomNav)=> {
   return (
     <div className={styles.bottom}>

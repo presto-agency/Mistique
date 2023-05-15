@@ -7,3 +7,9 @@ export interface Links{
   title: string
 }
 
+export interface Navigation {
+  topNav: Links[],
+  bottomNav: Links[]
+};
+
+
