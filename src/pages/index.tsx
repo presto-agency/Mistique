@@ -1,50 +1,11 @@
 import {MainLayout} from "@/components/MainLayout";
+import Hero from "@/sections/Hero/Hero";
+import React from "react";
 
 export default function Home() {
   return (
     <MainLayout title={"Home page"}>
-      <h1>
-        Main content
-      </h1>
-      <h1>
-        Main content
-      </h1>
-      <h1>
-        Main content
-      </h1>
-      <h1>
-        Main content
-      </h1>
-      <h1>
-        Main content
-      </h1>
-      <h1>
-        Main content
-      </h1>
-      <h1>
-        Main content
-      </h1>
-      <h1>
-        Main content
-      </h1>
-      <h1>
-        Main content
-      </h1>
-      <h1>
-        Main content
-      </h1>
-      <h1>
-        Main content
-      </h1>
-      <h1>
-        Main content
-      </h1>
-      <h1>
-        Main content
-      </h1>
-      <h1>
-        Main content
-      </h1>
+      <Hero/>
     </MainLayout>
   )
 }

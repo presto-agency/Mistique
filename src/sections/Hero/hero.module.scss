@@ -1,0 +1,65 @@
+@import "../../styles/variables.scss";
+
+.hero {
+  position: relative;
+  text-align: center;
+  margin: 3.7rem 0 18rem;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgba(186, 161, 198, 0.2) 50%, rgba(255, 255, 255, 0) 100%);
+  }
+
+  &__content {
+    position: relative;
+
+    &_animation {
+      width: 115rem;
+      height: 110rem;
+      display: inline-block;
+
+      video {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+
+    &_description {
+      max-width: 47.4rem;
+      margin: 2.7rem auto 0;
+
+      p {
+        margin: 0 0 3.8rem 0;
+        font-size: 1.6rem;
+        line-height: 175%;
+      }
+    }
+  }
+}
+
+@media (max-width: $mob) {
+  .hero {
+    margin: 14.1rem 0 16rem;
+
+    &__content {
+      &_animation {
+        width: auto;
+        height: 36.2rem;
+      }
+
+      &_description {
+        p {
+          font-size: 1.4rem;
+          line-height: 170%;
+        }
+      }
+    }
+  }
+}
+

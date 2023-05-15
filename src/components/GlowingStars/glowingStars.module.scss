@@ -1,0 +1,68 @@
+@function generate-random-stars ($screen-width, $screen-height, $color, $density) {
+
+  $h-shadow: random($screen-height);
+  $v-shadow: random($screen-width);
+
+  $stars: '#{$h-shadow}px #{$v-shadow}px #{$color}';
+  @for $i from 2 through $density {
+    $v-shadow: random($screen-height);
+    $h-shadow: random($screen-width);
+
+    $stars: '#{$stars}, #{$h-shadow}px #{$v-shadow}px #{$color}';
+  }
+  @return unquote($stars);
+}
+
+@mixin stars-content($screen-width, $screen-height, $color, $density, $speed, $delay) {
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  opacity: 0;
+  box-shadow: generate-random-stars($screen-width, $screen-height, $color, $density);
+  animation-name: glowing-stars;
+  animation-duration: $speed+s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+  animation-delay: $delay+s;
+}
+
+.stars{
+  &__star{
+    &:nth-child(1) {
+      @include stars-content(8000, 1000, #fff, 800, 5, 0);
+    }
+
+    &:nth-child(2) {
+      @include stars-content(8000, 1000, #fff, 800, 3, 1);
+    }
+
+    &:nth-child(3) {
+      @include stars-content(8000, 1000, #fff, 800, 5, 2);
+    }
+
+    &:nth-child(4) {
+      @include stars-content(8000, 1000, #fff, 800, 3, 3);
+    }
+
+    &:nth-child(5) {
+      @include stars-content(8000, 1000, #fff, 800, 5, 4);
+    }
+
+    &:nth-child(6) {
+      @include stars-content(8000, 1000, #fff, 800, 3, 5);
+    }
+  }
+}
+
+@keyframes glowing-stars {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

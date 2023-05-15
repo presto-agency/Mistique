@@ -43,6 +43,7 @@ img {
 
 .curtain {
   position: absolute;
+  pointer-events: none;
   left: 0;
   width: 100vw;
   max-width: 100vw;
@@ -70,3 +71,4 @@ img {
     }
   }
 }
+

@@ -1,4 +1,4 @@
-import React, {ReactNode} from "react";
+import React from "react";
 import styles from "./footer.module.scss";
 import Link from "next/link";
 import Button from "@/components/UI/Button/Button";
