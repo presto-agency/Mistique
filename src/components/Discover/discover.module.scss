@@ -1,0 +1,138 @@
+@import "../../styles/variables.scss";
+
+.discover {
+  margin: 19.5rem 0;
+
+  &__content {
+    position: relative;
+    padding: 7.2rem 12.6rem;
+    text-align: center;
+    max-width: 91.6rem;
+    margin: 0 auto;
+
+    &:before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-image: url("/images/home/bg.png");
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    > p {
+      strong {
+        font-weight: 400;
+        font-size: 4.8rem;
+        line-height: 110%;
+        font-family: "EBGaramond";
+      }
+    }
+
+    > p + p {
+      margin: 1.4rem 0 0 0;
+    }
+
+    > ul {
+      margin: 5.6rem 0 0 0;
+      display: flex;
+      justify-content: center;
+
+      li {
+        padding: 0 7.9rem 0 0;
+
+        img {
+          display: inline-block;
+          width: 8rem;
+          height: 8.4rem;
+          margin: 0 0 3.2rem 0;
+        }
+
+        h2 {
+          margin: 0 0 2rem 0;
+        }
+
+        p {
+          font-size: 1.6rem;
+          line-height: 175%;
+          font-weight: 400;
+          margin: 0 0 4rem 0;
+
+          strong {
+            font-size: 1.6rem;
+            line-height: 175%;
+            font-weight: 500;
+          }
+        }
+
+        &:last-child {
+          position: relative;
+          padding: 0 0 0 7.9rem;
+
+          &:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0.1rem;
+            height: 21.6rem;
+            background-color: $color-primary;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $mob) {
+  .discover {
+    margin: 16rem 0;
+
+    &__content {
+      padding: 8rem 5.5rem;
+
+      &:before {
+        background-image: url("/images/home/bg-mob.png");
+      }
+
+      > p {
+        strong {
+          font-size: 3.6rem;
+          line-height: 110%;
+        }
+      }
+
+      > ul {
+        margin: 7.2rem 0 0 0;
+        flex-direction: column;
+
+        li {
+          padding: 0 0 5.6rem 0;
+
+          p {
+            font-size: 1.4rem;
+            line-height: 170%;
+
+            strong {
+              font-size: 1.4rem;
+              line-height: 170%;
+            }
+          }
+
+          &:last-child {
+            padding: 0;
+
+            &:before {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
