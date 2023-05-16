@@ -1,3 +1,5 @@
+@import "../../styles/variables.scss";
+
 @function generate-random-stars ($screen-width, $screen-height, $color, $density) {
 
   $h-shadow: random($screen-height);
@@ -51,6 +53,36 @@
 
     &:nth-child(6) {
       @include stars-content(8000, 1000, #fff, 800, 3, 5);
+    }
+  }
+}
+
+@media (max-width: $mob) {
+  .stars{
+    &__star{
+      &:nth-child(1) {
+        @include stars-content(567, 500, #fff, 100, 5, 0);
+      }
+
+      &:nth-child(2) {
+        @include stars-content(567, 500, #fff, 100, 3, 1);
+      }
+
+      &:nth-child(3) {
+        @include stars-content(567, 500, #fff, 100, 5, 2);
+      }
+
+      &:nth-child(4) {
+        @include stars-content(567, 500, #fff, 100, 3, 3);
+      }
+
+      &:nth-child(5) {
+        @include stars-content(567, 500, #fff, 100, 5, 4);
+      }
+
+      &:nth-child(6) {
+        @include stars-content(8000, 1000, #fff, 800, 3, 5);
+      }
     }
   }
 }
