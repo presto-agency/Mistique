@@ -1,0 +1,65 @@
+.button {
+  display: inline-block;
+  font-family: "EBGaramond";
+  transition: 500ms;
+  background-color: transparent;
+  font-size: 2rem;
+  line-height: 130%;
+  color: $color-secondary;
+  border: 0.2rem solid $color-secondary;
+  border-radius: 4.8rem;
+  padding: 1.1rem 5.4rem;
+
+  @media (min-width: $desktop-l) {
+    &:hover {
+      background-color: $color-secondary;
+      color: $color-primary;
+    }
+  }
+
+  &._small {
+    font-size: 1.6rem;
+    padding: 0.6rem 3.2rem;
+  }
+
+  &._icon {
+    position: relative;
+    padding: 0.6rem 1.6rem 0.6rem 4.1rem;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 1.6rem;
+      width: 1.7rem;
+      height: 1.7rem;
+      background-size: 1.7rem 1.7rem;
+      background-position: center;
+      background-image: url("/images/btn-ico.svg");
+    }
+  }
+
+  &-dark {
+    background-color: $color-secondary;
+    color: $color-primary;
+  }
+
+  &-light {
+    border: 0.2rem solid $color-primary;
+    color: $color-primary;
+    @media (min-width: $desktop-l) {
+      &:hover {
+        background-color: $color-primary;
+        color: $color-secondary;
+      }
+    }
+  }
+}
+
+@media (max-width: $mob) {
+  .button {
+    padding: 1.2rem;
+    width: 100%;
+  }
+}

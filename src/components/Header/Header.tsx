@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import styles from "./header.module.scss";
 import Link from "next/link";
-import Button from "@/components/UI/Button/Button";
+import Button from "@/UI/Button/Button";
 import {useClassMobile} from "@/hooks/useClassMobile";
 import BottomLinks from "@/components/BottomLinks/BottomLinks";
 import {motion} from "framer-motion";
