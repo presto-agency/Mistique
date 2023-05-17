@@ -4,38 +4,22 @@ import Link from "next/link";
 import Button from "@/UI/Button/Button";
 import {useClassMobile} from "@/hooks/useClassMobile";
 import BottomLinks from "@/components/BottomLinks/BottomLinks";
-import {motion} from "framer-motion";
+import {AnimatePresence, motion} from "framer-motion";
 import {Navigation} from "@/exports/globalVars";
 import CurtainTop from "@/components/Header/CurtainTop";
 
 const Header = ({topNav, bottomNav}: Navigation) => {
   const isMobile = useClassMobile(false);
   const [isActive, setIsActive] = useState<boolean>(false);
-  const variants = {
-    hidden: {
-        height: 0
-      },
-    closed: {
-      height: 0,
-      transition: {
-        delay: 0.5
-      }
-    },
-    open: {height: "auto"},
-  };
-  const innerVariants = {
-    hidden: {
-      opacity: 0,
-    },
+
+  const showMenu = {
     open: {
       opacity: 1,
       scale: 1,
       filter: "blur(0px)",
-      transition: {
-        delay: 0.5
-      }
+
     },
-    closed: {
+    hidden: {
       opacity: 0,
       scale: 1.1,
       filter: "blur(10px)"
@@ -60,34 +44,34 @@ const Header = ({topNav, bottomNav}: Navigation) => {
               <Link className={styles.header__content_logo} href='/'>
                 <img src="/images/eye.svg" alt="logo"/>
               </Link>
-              <div className={styles.menu}>
-                <div className={styles.menu__wrapper}>
-                  <motion.div className={styles.menu__wrapper_container}
-                              variants={variants}
-                              initial="hidden"
-                              animate={isActive ? "open" : "closed"}
-                              transition={{duration: 0.5}}
-                  >
-                    <motion.div className={styles.list}
-                                variants={innerVariants}
-                                initial="hidden"
-                                animate={isActive ? "open" : "closed"}>
-                      <ul>
-                        {topNav.map(item => (
-                          <li key={item.id}>
-                            <Link href={item.url}>{item.title}</Link>
-                          </li>
-                        ))}
-                      </ul>
-                      <Button className={isMobile
-                        ? "button button-dark"
-                        : "button"}
-                              title={"Get answers - Tarot reading now!"}/>
-                      <BottomLinks bottomNav={bottomNav}/>
+              <AnimatePresence>
+                {isActive &&
+                  (<motion.div className={styles.menu}
+                               variants={showMenu}
+                               initial="hidden"
+                               animate="open"
+                               exit="hidden">
+                      <div className={styles.menu__wrapper}>
+                        <div className={styles.menu__wrapper_container}>
+                          <div className={styles.list}>
+                            <ul>
+                              {topNav.map(item => (
+                                <li key={item.id}>
+                                  <Link href={item.url}>{item.title}</Link>
+                                </li>
+                              ))}
+                            </ul>
+                            <Button className={isMobile
+                              ? "button button-dark"
+                              : "button"}
+                                    title={"Get answers - Tarot reading now!"}/>
+                            <BottomLinks bottomNav={bottomNav}/>
+                          </div>
+                        </div>
+                      </div>
                     </motion.div>
-                  </motion.div>
-                </div>
-              </div>
+                  )}
+              </AnimatePresence>
               <div onClick={headerActive} className={styles.header__content_burger}>
                 <span></span>
                 <span></span>
