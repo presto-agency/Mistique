@@ -25,10 +25,6 @@ const Header = ({topNav, bottomNav}: Navigation) => {
     },
   };
 
-  const headerActive = () => {
-    setIsActive((prevState) => !prevState);
-  }
-
   useEffect(() => {
     document.body.style.overflow = isActive ? "hidden" : "auto";
   }, [isActive]);
@@ -71,7 +67,7 @@ const Header = ({topNav, bottomNav}: Navigation) => {
                     </motion.div>
                   )}
               </AnimatePresence>
-              <div onClick={headerActive} className={styles.header__content_burger}>
+              <div onClick={() => setIsActive(!isActive)} className={styles.header__content_burger}>
                 <span></span>
                 <span></span>
                 <span></span>
