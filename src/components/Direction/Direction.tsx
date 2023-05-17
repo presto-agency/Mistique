@@ -7,7 +7,6 @@ import GlowingStars from "@/components/GlowingStars/GlowingStars";
 const Direction = () => {
   return (
     <section className={styles.direction}>
-      <GlowingStars/>
       <div className="container">
         <div className={styles.direction__content}>
           <div className={styles.direction__content_img}>
@@ -33,6 +32,7 @@ const Direction = () => {
           </div>
         </div>
       </div>
+      <GlowingStars/>
     </section>
   );
 };
