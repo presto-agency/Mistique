@@ -17,7 +17,6 @@ const Header = ({topNav, bottomNav}: Navigation) => {
       opacity: 1,
       scale: 1,
       filter: "blur(0px)",
-
     },
     hidden: {
       opacity: 0,
