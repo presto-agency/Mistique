@@ -7,7 +7,6 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    max-width: 99rem;
     margin: 0 auto;
 
     &__item {
@@ -42,7 +41,7 @@
 
 @media (max-width: $mob) {
   .tarot {
-    margin: 16rem auto;
+    margin: 16rem 0 17rem;
 
     .links {
       justify-content: center;
@@ -53,6 +52,7 @@
         width: calc((100% - (1.2rem * 4)) / 2);
 
         p {
+          margin: 2.2rem 0 0 0;
           font-size: 1.8rem;
         }
 
