@@ -25,10 +25,11 @@
 
   &._primary{
     background-color: $color-primary;
+    border: 0.2rem solid $color-primary;
+
     @media (min-width: $desktop-l) {
       &:hover {
         background-color: transparent;
-        border: 0.2rem solid $color-primary;
       }
     }
   }
