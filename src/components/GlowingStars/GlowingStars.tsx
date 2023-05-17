@@ -4,12 +4,9 @@ import styles from "./glowingStars.module.scss";
 const GlowingStars = () => {
   return (
     <div className={styles.stars}>
-      <div className={styles.stars__star}></div>
-      <div className={styles.stars__star}></div>
-      <div className={styles.stars__star}></div>
-      <div className={styles.stars__star}></div>
-      <div className={styles.stars__star}></div>
-      <div className={styles.stars__star}></div>
+      {Array.from({ length: 5 }).map((_, index) => (
+        <div key={index} className={styles.stars__star}></div>
+      ))}
     </div>
   );
 };

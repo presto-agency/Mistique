@@ -29,8 +29,14 @@
   animation-delay: $delay+s;
 }
 
-.stars{
-  &__star{
+.stars {
+  position: relative;
+
+  &__star {
+    position: absolute;
+    left: 0;
+    top: 0;
+
     &:nth-child(1) {
       @include stars-content(8000, 1000, #fff, 800, 5, 0);
     }
@@ -58,8 +64,8 @@
 }
 
 @media (max-width: $mob) {
-  .stars{
-    &__star{
+  .stars {
+    &__star {
       &:nth-child(1) {
         @include stars-content(567, 500, #fff, 100, 5, 0);
       }
