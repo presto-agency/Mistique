@@ -22,6 +22,16 @@
     padding: 0.6rem 3.2rem;
   }
 
+  &._primary{
+    background-color: $color-primary;
+    @media (min-width: $desktop-l) {
+      &:hover {
+        background-color: transparent;
+        border: 0.2rem solid $color-primary;
+      }
+    }
+  }
+
   &._icon {
     position: relative;
     padding: 0.6rem 1.6rem 0.6rem 4.1rem;
