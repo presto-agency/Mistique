@@ -20,16 +20,21 @@ const Hero = () => {
         <div className={styles.hero__content}>
           <div className={styles.hero__content_animation}>
             {isSafari
-              ? <img src="/images/home/hero.svg" alt="hero" />
+              ? (
+                <video autoPlay loop muted>
+                  <source src="/animations/hero-animation.mov" type="video/quicktime"/>
+                </video>
+              )
               : (
                 <video autoPlay loop muted>
-                  <source src="/animations/hero-animation.webm" type="video/webm" />
+                  <source src="/animations/hero-animation.mov" type="video/quicktime"/>
                 </video>
               )}
           </div>
           <div className={styles.hero__content_description}>
             <p>
-              Are you curious about what the future holds? Perhaps you&apos;re facing an important decision, or have questions that you&apos;re seeking answers to? Then Tarot is just what you need!
+              Are you curious about what the future holds? Perhaps you&apos;re facing an important decision, or have
+              questions that you&apos;re seeking answers to? Then Tarot is just what you need!
             </p>
             <Button className={"button button-light"} title={"Unlock the Secrets of the Tarot"}/>
           </div>

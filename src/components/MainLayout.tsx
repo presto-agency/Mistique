@@ -1,5 +1,5 @@
 import Head from "next/head";
-import {ReactNode, useRef} from "react";
+import {ReactNode} from "react";
 import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
 import Cursor from "@/components/Cursor/Cursor";
