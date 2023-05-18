@@ -2,16 +2,11 @@ import React, {useEffect, useState} from 'react';
 import styles from "./hero.module.scss";
 import Button from "@/UI/Button/Button";
 import GlowingStars from "@/components/GlowingStars/GlowingStars";
+import {isSafari} from "react-device-detect";
 
 const Hero = () => {
-  const [isSafari, setIsSafari] = useState(false);
-
-  useEffect(() => {
-    if (typeof navigator !== 'undefined') {
-      const userAgent = navigator.userAgent;
-      setIsSafari(/^((?!chrome|android).)*safari/i.test(userAgent));
-    }
-  }, []);
+  const movVideo = '/animations/hero-animation.mov';
+  const webmVideo = '/animations/hero-animation.webm';
 
   return (
     <section className={styles.hero}>
@@ -19,23 +14,20 @@ const Hero = () => {
       <div className="container">
         <div className={styles.hero__content}>
           <div className={styles.hero__content_animation}>
-            {isSafari
-              ? (
-                <video autoPlay loop muted>
-                  <source src="/animations/hero-animation.mov" type="video/quicktime"/>
-                </video>
-              )
-              : (
-                <video autoPlay loop muted>
-                  <source src="/animations/hero-animation.webm" type="video/webm"/>
-                  <source src="/animations/hero-animation.mov" type="video/quicktime"/>
-                </video>
-              )}
+            {isSafari ? (
+              <video autoPlay loop muted>
+                <source src={movVideo} type="video/quicktime" />
+                Your browser does not support the video tag.
+              </video>
+            ) : (
+              <video autoPlay loop muted>
+                <source src={webmVideo} type="video/webm" />
+              </video>
+            )}
           </div>
           <div className={styles.hero__content_description}>
             <p>
-              Are you curious about what the future holds? Perhaps you&apos;re facing an important decision, or have
-              questions that you&apos;re seeking answers to? Then Tarot is just what you need!
+              Are you curious about what the future holds? Perhaps you&apos;re facing an important decision, or have questions that you&apos;re seeking answers to? Then Tarot is just what you need!
             </p>
             <Button className={"button button-light"} title={"Unlock the Secrets of the Tarot"}/>
           </div>
