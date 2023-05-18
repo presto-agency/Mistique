@@ -1,17 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import styles from "./hero.module.scss";
 import Button from "@/UI/Button/Button";
 import GlowingStars from "@/components/GlowingStars/GlowingStars";
 
 const Hero = () => {
-  const [isSafari, setIsSafari] = useState(false);
-
-  useEffect(() => {
-    if (typeof navigator !== 'undefined') {
-      const userAgent = navigator.userAgent;
-      setIsSafari(/^((?!chrome|android).)*safari/i.test(userAgent));
-    }
-  }, []);
 
   return (
     <section className={styles.hero}>
@@ -19,17 +11,10 @@ const Hero = () => {
       <div className="container">
         <div className={styles.hero__content}>
           <div className={styles.hero__content_animation}>
-            {isSafari
-              ? (
-                <video autoPlay loop muted>
-                  <source src="/animations/hero-animation.mov" type="video/quicktime"/>
-                </video>
-              )
-              : (
-                <video autoPlay loop muted>
-                  <source src="/animations/hero-animation.mov" type="video/quicktime"/>
-                </video>
-              )}
+            <video autoPlay loop muted>
+              <source src="/animations/hero-animation.mov" type="video/quicktime"/>
+              <source src="/animations/hero-animation.mov" type="video/quicktime"/>
+            </video>
           </div>
           <div className={styles.hero__content_description}>
             <p>
