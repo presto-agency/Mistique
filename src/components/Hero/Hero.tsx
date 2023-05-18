@@ -12,7 +12,7 @@ const Hero = () => {
         <div className={styles.hero__content}>
           <div className={styles.hero__content_animation}>
             <video autoPlay loop muted>
-              <source src="/animations/hero-animation.mov" type="video/quicktime"/>
+              <source src="/animations/hero-animation.webm" type="video/webm"/>
               <source src="/animations/hero-animation.mov" type="video/quicktime"/>
             </video>
           </div>
