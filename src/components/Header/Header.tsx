@@ -12,6 +12,9 @@ const Header = ({topNav, bottomNav}: Navigation) => {
   const isMobile = useClassMobile(false);
   const [isActive, setIsActive] = useState<boolean>(false);
 
+  const [isScrolledDown, setIsScrolledDown] = useState(true);
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+
   const showMenu = {
     open: {
       opacity: 1,
@@ -29,9 +32,26 @@ const Header = ({topNav, bottomNav}: Navigation) => {
     document.body.style.overflow = isActive ? "hidden" : "auto";
   }, [isActive]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.scrollY;
+      const isScrollingDown = currentScrollPos > prevScrollPos;
+
+      setIsScrolledDown(!(isScrollingDown && currentScrollPos > 0));
+      setPrevScrollPos(currentScrollPos);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [prevScrollPos]);
+
+
   return (
     <>
-      <CurtainTop/>
+      <CurtainTop isScrolledDown={isScrolledDown}/>
       <header className={`${styles.header} ${isActive ? styles.active : ""}`}>
         <div className="container">
           {isMobile
@@ -73,13 +93,18 @@ const Header = ({topNav, bottomNav}: Navigation) => {
                 <span></span>
               </div>
             </nav>
-            : <nav className={styles.header__content}>
+            : <motion.nav className={styles.header__content}
+                          initial="hidden"
+                          animate={isScrolledDown ? 'open' : 'hidden'}
+                          variants={showMenu}
+                          transition={{ duration: 0.5 }}
+            >
               <Link className={styles.header__content_text} href="/">Join Mystique</Link>
               <div className={styles.header__content_links}>
                 <Button className={"button _small"} title={"Go Tarot"}/>
                 <Button className={"button _small _icon button-dark"} title={"Menu"}/>
               </div>
-            </nav>
+            </motion.nav>
           }
         </div>
       </header>
