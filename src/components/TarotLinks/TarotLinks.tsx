@@ -1,8 +1,13 @@
 import React from 'react';
 import Link from "next/link";
 import styles from "./tarotLinks.module.scss";
+import {MotionValue, motion} from "framer-motion";
 
-const TarotLinks = () => {
+interface y {
+  y: MotionValue
+}
+
+const TarotLinks = ({y}: y) => {
   const tarotLinks = [
     {
       id: 1,
@@ -34,7 +39,9 @@ const TarotLinks = () => {
   ];
 
   return (
-    <section className={styles.tarot}>
+    <motion.section className={styles.tarot}
+                    style={{y}}
+    >
       <div className="container">
         <ul className={styles.links}>
           {tarotLinks.map(item => (
@@ -54,7 +61,7 @@ const TarotLinks = () => {
           ))}
         </ul>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

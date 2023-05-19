@@ -3,10 +3,13 @@ import styles from "./hero.module.scss";
 import Button from "@/UI/Button/Button";
 import GlowingStars from "@/components/GlowingStars/GlowingStars";
 import {isSafari} from "react-device-detect";
-import {motion} from "framer-motion";
+import {motion, MotionValue} from "framer-motion";
 
+interface y {
+  y: MotionValue
+}
 
-const Hero = () => {
+const Hero = ({y}: y) => {
   const movVideo = '/animations/hero-animation.mov';
   const webmVideo = '/animations/hero-animation.webm';
 
@@ -31,25 +34,27 @@ const Hero = () => {
       <GlowingStars/>
       <div className="container">
         <div className={styles.hero__content}>
-          <div className={styles.hero__content_animation}>
+          <motion.div className={styles.hero__content_animation}
+                      style={{y}}
+          >
             {isSafari ? (
               <video autoPlay loop muted>
-                <source src={movVideo} type="video/quicktime" />
+                <source src={movVideo} type="video/quicktime"/>
                 Your browser does not support the video tag.
               </video>
             ) : (
               <video autoPlay loop muted>
-                <source src={webmVideo} type="video/webm" />
+                <source src={webmVideo} type="video/webm"/>
               </video>
             )}
-          </div>
-          <div className={styles.hero__content_description}>
+          </motion.div>
+          <motion.div style={{y}} className={styles.hero__content_description}>
             <p>
               Are you curious about what the future holds? Perhaps you&apos;re facing an important decision, or have
               questions that you&apos;re seeking answers to? Then Tarot is just what you need!
             </p>
             <Button className={"button button-light"} title={"Unlock the Secrets of the Tarot"}/>
-          </div>
+          </motion.div>
         </div>
       </div>
     </motion.section>

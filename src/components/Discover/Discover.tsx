@@ -1,25 +1,36 @@
 import React from 'react';
 import styles from "./discover.module.scss";
 import Button from "@/UI/Button/Button";
+import {MotionValue, motion} from "framer-motion";
+
+interface y {
+  y: MotionValue
+}
 
 
-const Discover = () => {
+const Discover = ({y}:y) => {
   return (
     <section className={styles.discover}>
       <div className="container">
         <div className={styles.discover__content}>
-          <p>
+          <motion.p
+            style={{y}}
+          >
             <small>
               Mystique Tarot
             </small>
-          </p>
-          <p>
+          </motion.p>
+          <motion.p
+            style={{y}}
+          >
             <strong>
               Discover the 78 cards of<br/> the Tarot deck
             </strong>
-          </p>
+          </motion.p>
           <ul>
-            <li>
+            <motion.li
+              style={{y}}
+            >
               <img src="/images/home/major.svg" alt="logo"/>
               <h2>
                 Major Arcana
@@ -29,8 +40,10 @@ const Discover = () => {
                 <strong>22 major arcana</strong>
               </p>
               <Button className={"button button-light"} title={"Read more"}/>
-            </li>
-            <li>
+            </motion.li>
+            <motion.li
+              style={{y}}
+            >
               <img src="/images/home/minor.svg" alt="logo"/>
               <h2>
                 Minor Arcana
@@ -40,7 +53,7 @@ const Discover = () => {
                 <strong>56 major arcana</strong>
               </p>
               <Button className={"button button-light"} title={"Read more"}/>
-            </li>
+            </motion.li>
           </ul>
         </div>
       </div>

@@ -2,13 +2,20 @@ import React from 'react';
 import styles from "./direction.module.scss";
 import Button from "@/UI/Button/Button";
 import GlowingStars from "@/components/GlowingStars/GlowingStars";
+import {MotionValue, motion} from "framer-motion";
 
+interface y {
+  y: MotionValue
+}
 
-const Direction = () => {
+const Direction = ({y}: y) => {
   return (
     <section className={styles.direction}>
+      <GlowingStars/>
       <div className="container">
-        <div className={styles.direction__content}>
+        <motion.div className={styles.direction__content}
+                    style={{y}}
+        >
           <div className={styles.direction__content_img}>
             <img src="/images/home/picture.png" alt="hero"/>
           </div>
@@ -30,9 +37,8 @@ const Direction = () => {
             <Button className={"button _primary"} title={"Read more"}/>
             <Button className={"button button-light"} title={"More articles"}/>
           </div>
-        </div>
+        </motion.div>
       </div>
-      <GlowingStars/>
     </section>
   );
 };
