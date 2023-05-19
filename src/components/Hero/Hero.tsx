@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from "./hero.module.scss";
 import Button from "@/UI/Button/Button";
 import GlowingStars from "@/components/GlowingStars/GlowingStars";
@@ -7,8 +7,13 @@ import {motion} from "framer-motion";
 
 
 const Hero = () => {
+  const [isSafariBrowser, setIsSafariBrowser] = useState(false);
   const movVideo = '/animations/hero-animation.mov';
   const webmVideo = '/animations/hero-animation.webm';
+
+  useEffect(() => {
+    setIsSafariBrowser(isSafari);
+  }, []);
 
   const showHero = {
     open: {
@@ -32,7 +37,7 @@ const Hero = () => {
       <div className="container">
         <div className={styles.hero__content}>
           <div className={styles.hero__content_animation}>
-            {isSafari ? (
+            {isSafariBrowser ? (
               <video autoPlay loop muted>
                 <source src={movVideo} type="video/quicktime" />
                 Your browser does not support the video tag.
