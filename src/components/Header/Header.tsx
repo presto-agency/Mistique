@@ -32,7 +32,7 @@ const Header = ({topNav, bottomNav}: Navigation) => {
     open: {
       opacity: 1,
       transition: {
-        delay: 0.5
+        delay: 0.5,
       }
     },
     hidden: {
@@ -69,7 +69,6 @@ const Header = ({topNav, bottomNav}: Navigation) => {
                      animate={isScrolledDown ? 'open' : 'hidden'}
                      style={{ pointerEvents: isScrolledDown ? 'initial' : 'none' }}
                      variants={showHeader}
-                     transition={{duration: 0.5}}
       >
         <div className="container">
           {isMobile
