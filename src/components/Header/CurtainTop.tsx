@@ -2,9 +2,13 @@ import React from 'react';
 import {useClassMobile} from "@/hooks/useClassMobile";
 import {motion} from "framer-motion";
 
-const CurtainTop = ({isScrolledDown}: boolean) => {
+interface ScrolledDown{
+  isScrolledDown: boolean
+}
+
+const CurtainTop = ({isScrolledDown}:ScrolledDown) => {
   const isMobile = useClassMobile(false);
-  const showHeader = {
+  const showCurtain = {
     open: {
       y: 0
     },
@@ -20,7 +24,12 @@ const CurtainTop = ({isScrolledDown}: boolean) => {
     <>
       {isMobile
         ?
-        <svg className="curtain curtain-top" viewBox="0 0 360 153" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <motion.svg className="curtain curtain-top" viewBox="0 0 360 153" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    initial="hidden"
+                    variants={showCurtain}
+                    animate={isScrolledDown ? "open" : "hidden"}
+                    transition={{duration: 0.5}}
+        >
           <g clipPath="url(#clip0_14526_6612)">
             <g clipPath="url(#clip1_14526_6612)">
               <path
@@ -36,10 +45,10 @@ const CurtainTop = ({isScrolledDown}: boolean) => {
               <rect width="774" height="153" fill="white" transform="translate(-207)"/>
             </clipPath>
           </defs>
-        </svg>
+        </motion.svg>
         : <motion.svg className="curtain curtain-top" viewBox="0 0 1440 212" fill="none" xmlns="http://www.w3.org/2000/svg"
                       initial="hidden"
-                      variants={showHeader}
+                      variants={showCurtain}
                       animate={isScrolledDown ? "open" : "hidden"}
                       transition={{duration: 0.5}}
         >

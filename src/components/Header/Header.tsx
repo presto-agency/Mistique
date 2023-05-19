@@ -10,7 +10,7 @@ import CurtainTop from "@/components/Header/CurtainTop";
 
 const Header = ({topNav, bottomNav}: Navigation) => {
   const isMobile = useClassMobile(false);
-  const [isActive, setIsActive] = useState<boolean>(false);
+  const [isActive, setIsActive] = useState(false);
 
   const [isScrolledDown, setIsScrolledDown] = useState(true);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
@@ -25,6 +25,20 @@ const Header = ({topNav, bottomNav}: Navigation) => {
       opacity: 0,
       scale: 1.1,
       filter: "blur(10px)"
+    },
+  };
+
+  const showHeader = {
+    open: {
+      opacity: 1,
+      pointerEvents: "initial",
+      transition: {
+        delay: 0.5
+      }
+    },
+    hidden: {
+      opacity: 0,
+      pointerEvents: "none"
     },
   };
 
@@ -52,7 +66,12 @@ const Header = ({topNav, bottomNav}: Navigation) => {
   return (
     <>
       <CurtainTop isScrolledDown={isScrolledDown}/>
-      <header className={`${styles.header} ${isActive ? styles.active : ""}`}>
+      <motion.header className={`${styles.header} ${isActive ? styles.active : ""}`}
+                     initial="hidden"
+                     animate={isScrolledDown ? 'open' : 'hidden'}
+                     variants={showHeader}
+                     transition={{duration: 0.5}}
+      >
         <div className="container">
           {isMobile
             ? <nav className={styles.header__content}>
@@ -93,21 +112,16 @@ const Header = ({topNav, bottomNav}: Navigation) => {
                 <span></span>
               </div>
             </nav>
-            : <motion.nav className={styles.header__content}
-                          initial="hidden"
-                          animate={isScrolledDown ? 'open' : 'hidden'}
-                          variants={showMenu}
-                          transition={{ duration: 0.5 }}
-            >
+            : <nav className={styles.header__content}>
               <Link className={styles.header__content_text} href="/">Join Mystique</Link>
               <div className={styles.header__content_links}>
                 <Button className={"button _small"} title={"Go Tarot"}/>
                 <Button className={"button _small _icon button-dark"} title={"Menu"}/>
               </div>
-            </motion.nav>
+            </nav>
           }
         </div>
-      </header>
+      </motion.header>
     </>
   );
 };
