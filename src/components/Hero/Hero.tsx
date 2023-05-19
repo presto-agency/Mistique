@@ -34,11 +34,12 @@ const Hero = () => {
           <div className={styles.hero__content_animation}>
             {isSafari ? (
               <video autoPlay loop muted>
-                <source src={movVideo} type="video/quicktime"/>
+                <source src={movVideo} type="video/quicktime" />
+                Your browser does not support the video tag.
               </video>
             ) : (
               <video autoPlay loop muted>
-                <source src={webmVideo} type="video/webm"/>
+                <source src={webmVideo} type="video/webm" />
               </video>
             )}
           </div>
