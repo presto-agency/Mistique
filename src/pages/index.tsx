@@ -5,10 +5,8 @@ import TarotLinks from "@/components/TarotLinks/TarotLinks";
 import Discover from "@/components/Discover/Discover";
 import Direction from "@/components/Direction/Direction";
 import {MotionValue, useScroll, useTransform} from "framer-motion";
-import {useClassMobile} from "@/hooks/useClassMobile";
 
 export default function Home() {
-  const isMobile = useClassMobile(false);
   let useParallax = (value: MotionValue<number>)=> {
     return useTransform(value, [0, 1], [0, -250]);
   }
@@ -17,7 +15,7 @@ export default function Home() {
   const y = useParallax(scrollYProgress);
 
   return (
-    <MainLayout title={"Home page"} y={y}>
+    <MainLayout title={"Home page"}>
       <Hero y = {y}/>
       <TarotLinks y = {y}/>
       <Discover y = {y}/>
