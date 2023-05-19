@@ -7,30 +7,25 @@ interface y {
   y: MotionValue
 }
 
-
 const Discover = ({y}:y) => {
   return (
-    <section className={styles.discover}>
+    <motion.section className={styles.discover}
+                    style={{y}}
+    >
       <div className="container">
         <div className={styles.discover__content}>
-          <motion.p
-            style={{y}}
-          >
+          <p>
             <small>
               Mystique Tarot
             </small>
-          </motion.p>
-          <motion.p
-            style={{y}}
-          >
+          </p>
+          <p>
             <strong>
               Discover the 78 cards of<br/> the Tarot deck
             </strong>
-          </motion.p>
+          </p>
           <ul>
-            <motion.li
-              style={{y}}
-            >
+            <li>
               <img src="/images/home/major.svg" alt="logo"/>
               <h2>
                 Major Arcana
@@ -40,10 +35,8 @@ const Discover = ({y}:y) => {
                 <strong>22 major arcana</strong>
               </p>
               <Button className={"button button-light"} title={"Read more"}/>
-            </motion.li>
-            <motion.li
-              style={{y}}
-            >
+            </li>
+            <li>
               <img src="/images/home/minor.svg" alt="logo"/>
               <h2>
                 Minor Arcana
@@ -53,11 +46,11 @@ const Discover = ({y}:y) => {
                 <strong>56 major arcana</strong>
               </p>
               <Button className={"button button-light"} title={"Read more"}/>
-            </motion.li>
+            </li>
           </ul>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

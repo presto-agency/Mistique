@@ -56,6 +56,15 @@ img {
 
   &-bottom {
     bottom: 0;
+    @media (min-width: $desktop-xl) {
+      transform: translateY(15%);
+    }
+    @media (min-width: $desktop-xxl) {
+      transform: translateY(25%);
+    }
+    @media (min-width: $desktop-xxl) {
+      transform: translateY(35%);
+    }
   }
 }
 
