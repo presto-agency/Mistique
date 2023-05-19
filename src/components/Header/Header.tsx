@@ -31,14 +31,12 @@ const Header = ({topNav, bottomNav}: Navigation) => {
   const showHeader = {
     open: {
       opacity: 1,
-      pointerEvents: "initial",
       transition: {
         delay: 0.5
       }
     },
     hidden: {
       opacity: 0,
-      pointerEvents: "none"
     },
   };
 
@@ -69,6 +67,7 @@ const Header = ({topNav, bottomNav}: Navigation) => {
       <motion.header className={`${styles.header} ${isActive ? styles.active : ""}`}
                      initial="hidden"
                      animate={isScrolledDown ? 'open' : 'hidden'}
+                     style={{ pointerEvents: isScrolledDown ? 'initial' : 'none' }}
                      variants={showHeader}
                      transition={{duration: 0.5}}
       >
