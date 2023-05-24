@@ -9,7 +9,7 @@
   display: inline-block;
   width: 32px;
   height: 32px;
-  @media (max-width: $mob) {
+  @media (max-width: $desktop-xs) {
     display: none;
   }
 
