@@ -3,10 +3,10 @@ import styles from "./header.module.scss";
 import Link from "next/link";
 import Button from "@/UI/Button/Button";
 import {useClassMobile} from "@/hooks/useClassMobile";
-import BottomLinks from "@/components/BottomLinks/BottomLinks";
-import {AnimatePresence, motion} from "framer-motion";
+import {motion, Variants} from "framer-motion";
 import {Navigation} from "@/exports/globalVars";
 import CurtainTop from "@/components/Header/CurtainTop";
+import Menu from "@/components/Header/Menu";
 
 const Header = ({topNav, bottomNav}: Navigation) => {
   const isMobile = useClassMobile(false);
@@ -67,7 +67,7 @@ const Header = ({topNav, bottomNav}: Navigation) => {
       <motion.header className={`${styles.header} ${isActive ? styles.active : ""}`}
                      initial="hidden"
                      animate={isScrolledDown ? 'open' : 'hidden'}
-                     style={{ pointerEvents: isScrolledDown ? 'initial' : 'none' }}
+                     style={{pointerEvents: isScrolledDown ? 'initial' : 'none'}}
                      variants={showHeader}
       >
         <div className="container">
@@ -76,34 +76,7 @@ const Header = ({topNav, bottomNav}: Navigation) => {
               <Link className={styles.header__content_logo} href='/'>
                 <img src="/images/eye.svg" alt="logo"/>
               </Link>
-              <AnimatePresence>
-                {isActive &&
-                  (<motion.div className={styles.menu}
-                               variants={showMenu}
-                               initial="hidden"
-                               animate="open"
-                               exit="hidden">
-                      <div className={styles.menu__wrapper}>
-                        <div className={styles.menu__wrapper_container}>
-                          <div className={styles.list}>
-                            <ul>
-                              {topNav.map(item => (
-                                <li key={item.id}>
-                                  <Link href={item.url}>{item.title}</Link>
-                                </li>
-                              ))}
-                            </ul>
-                            <Button className={isMobile
-                              ? "button button-dark"
-                              : "button"}
-                                    title={"Get answers - Tarot reading now!"}/>
-                            <BottomLinks bottomNav={bottomNav}/>
-                          </div>
-                        </div>
-                      </div>
-                    </motion.div>
-                  )}
-              </AnimatePresence>
+              <Menu isActive={isActive} showMenu={showMenu} topNav={topNav} isMobile={isMobile} bottomNav={bottomNav}/>
               <div onClick={() => setIsActive(!isActive)} className={styles.header__content_burger}>
                 <span></span>
                 <span></span>
