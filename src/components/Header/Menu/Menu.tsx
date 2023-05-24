@@ -1,6 +1,6 @@
 import React from 'react';
-import {AnimatePresence, motion, MotionStyle, Variants} from "framer-motion";
-import styles from "@/components/Header/header.module.scss";
+import {AnimatePresence, motion, Variants} from "framer-motion";
+import styles from "@/components/Header/Menu/menu.module.scss";
 import Link from "next/link";
 import Button from "@/UI/Button/Button";
 import BottomLinks from "@/components/BottomLinks/BottomLinks";

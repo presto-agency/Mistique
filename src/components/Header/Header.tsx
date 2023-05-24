@@ -6,7 +6,7 @@ import {useClassMobile} from "@/hooks/useClassMobile";
 import {motion, Variants} from "framer-motion";
 import {Navigation} from "@/exports/globalVars";
 import CurtainTop from "@/components/Header/CurtainTop";
-import Menu from "@/components/Header/Menu";
+import Menu from "@/components/Header/Menu/Menu";
 
 const Header = ({topNav, bottomNav}: Navigation) => {
   const isMobile = useClassMobile(false);
