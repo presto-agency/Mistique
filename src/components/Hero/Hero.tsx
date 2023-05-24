@@ -2,17 +2,18 @@ import React from 'react';
 import styles from "./hero.module.scss";
 import Button from "@/UI/Button/Button";
 import GlowingStars from "@/components/GlowingStars/GlowingStars";
-import {isSafari} from "react-device-detect";
 import {motion, MotionValue} from "framer-motion";
+import HeroAnimation from "@/components/Hero/HeroAnimation";
+import dynamic from "next/dynamic";
+const DynamicComponent = dynamic(() => import('./HeroAnimation'), {
+  ssr: false, // Ensure it's not rendered on the server-side
+});
 
 interface y {
   y: MotionValue
 }
 
 const Hero = ({y}: y) => {
-  const movVideo = '/animations/hero-animation.mov';
-  const webmVideo = '/animations/hero-animation.webm';
-
   const showHero = {
     open: {
       opacity: 1,
@@ -39,16 +40,7 @@ const Hero = ({y}: y) => {
           <motion.div className={styles.hero__content_animation}
                       style={{y}}
           >
-            {isSafari ? (
-              <video autoPlay loop muted>
-                <source src={movVideo} type="video/quicktime"/>
-                Your browser does not support the video tag.
-              </video>
-            ) : (
-              <video autoPlay loop muted>
-                <source src={webmVideo} type="video/webm"/>
-              </video>
-            )}
+            <DynamicComponent/>
           </motion.div>
           <motion.div style={{y}} className={styles.hero__content_description}>
             <p>
