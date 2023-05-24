@@ -42,7 +42,7 @@
     }
 
     &:nth-child(2) {
-      @include stars-content(8000, 1000, #fff, 800, 3, 1);
+      @include stars-content(8000, 800, #fff, 800, 3, 1);
     }
 
     &:nth-child(3) {
@@ -50,7 +50,7 @@
     }
 
     &:nth-child(4) {
-      @include stars-content(8000, 1000, #fff, 800, 3, 3);
+      @include stars-content(8000, 800, #fff, 800, 3, 3);
     }
 
     &:nth-child(5) {
@@ -58,7 +58,7 @@
     }
 
     &:nth-child(6) {
-      @include stars-content(8000, 1000, #fff, 800, 3, 5);
+      @include stars-content(8000, 800, #fff, 800, 3, 5);
     }
   }
 }
@@ -71,7 +71,7 @@
       }
 
       &:nth-child(2) {
-        @include stars-content(567, 500, #fff, 100, 3, 1);
+        @include stars-content(567, 800, #fff, 100, 3, 1);
       }
 
       &:nth-child(3) {
@@ -79,7 +79,7 @@
       }
 
       &:nth-child(4) {
-        @include stars-content(567, 500, #fff, 100, 3, 3);
+        @include stars-content(567, 800, #fff, 100, 3, 3);
       }
 
       &:nth-child(5) {
@@ -87,7 +87,7 @@
       }
 
       &:nth-child(6) {
-        @include stars-content(8000, 1000, #fff, 800, 3, 5);
+        @include stars-content(8000, 800, #fff, 100, 3, 5);
       }
     }
   }

@@ -3,7 +3,7 @@
 .hero {
   position: relative;
   text-align: center;
-  margin: 3.7rem 0 18rem;
+  margin: 0 0 18rem;
 
   &:before {
     content: '';
@@ -17,6 +17,7 @@
 
   &__content {
     position: relative;
+    padding: 3.7rem 0 0 0;
 
     &_animation {
       position: relative;
@@ -63,9 +64,10 @@
 
 @media (max-width: $mob) {
   .hero {
-    margin: 14.1rem 0 16rem;
+    margin: 0 0 16rem;
 
     &__content {
+      padding: 14.1rem 0 0 0;
       &_animation {
         width: auto;
         height: 36.2rem;
