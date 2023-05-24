@@ -2,7 +2,11 @@ import React, {useEffect, useState} from "react";
 import styles from "./cursor.module.scss";
 import {motion} from "framer-motion";
 
-const Cursor = ({isActive}: boolean) => {
+interface Cursor{
+  isActive: boolean
+}
+
+const Cursor = ({isActive}: Cursor) => {
   const [cursorVariant, setCursorVariant] = useState("default");
 
   const [mousePosition, setMousePosition] = useState({
