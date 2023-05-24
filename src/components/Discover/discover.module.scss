@@ -1,7 +1,18 @@
 @import "../../styles/variables.scss";
 
 .discover {
+  position: relative;
   margin: 17.5rem 0;
+
+  &__stars {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 133.6rem;
+    height: 62.8rem;
+    mix-blend-mode: color-dodge;
+  }
 
   &__content {
     position: relative;
@@ -93,6 +104,10 @@
 @media (max-width: $mob) {
   .discover {
     margin: 17rem 0 16rem;
+
+    &__stars {
+      display: none;
+    }
 
     &__content {
       padding: 8rem 5.5rem;

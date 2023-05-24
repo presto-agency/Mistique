@@ -9,11 +9,12 @@ interface y {
 
 const Discover = ({y}:y) => {
   return (
-    <motion.section className={styles.discover}
-                    style={{y}}
-    >
+    <section className={styles.discover}>
       <div className="container">
-        <div className={styles.discover__content}>
+        <img src="/images/home/stars-3.svg" alt="stars" className={styles.discover__stars}/>
+        <motion.div className={styles.discover__content}
+             style={{y}}
+        >
           <p>
             <small>
               Mystique Tarot
@@ -48,9 +49,9 @@ const Discover = ({y}:y) => {
               <Button className={"button button-light"} title={"Read more"}/>
             </li>
           </ul>
-        </div>
+        </motion.div>
       </div>
-    </motion.section>
+    </section>
   );
 };
 
