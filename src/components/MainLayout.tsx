@@ -65,7 +65,7 @@ export function MainLayout({children, title = "Mistique Tarro"}: MainLayoutProps
         <meta name="viewport"
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
       </Head>
-      <Cursor isActive={isActive} setIsActive={setIsActive}/>
+      <Cursor isActive={isActive}/>
       <div className="wrapper">
         <Header topNav={topNav} bottomNav={bottomNav} isActive={isActive} setIsActive={setIsActive}/>
         <main>
