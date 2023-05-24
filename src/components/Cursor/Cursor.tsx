@@ -2,8 +2,7 @@ import React, {useEffect, useState} from "react";
 import styles from "./cursor.module.scss";
 import {motion} from "framer-motion";
 
-
-const Cursor = () => {
+const Cursor = ({isActive}: boolean) => {
   const [cursorVariant, setCursorVariant] = useState("default");
 
   const [mousePosition, setMousePosition] = useState({
@@ -42,7 +41,7 @@ const Cursor = () => {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const links = document.querySelectorAll('a');
+      const links = document.querySelectorAll('a, button');
       links.forEach((link) => {
         link.addEventListener("mouseenter", onLink);
         link.addEventListener("mouseleave", leaveLink);
@@ -61,7 +60,7 @@ const Cursor = () => {
       window.removeEventListener("mousemove", mouseMove)
     }
 
-  }, [])
+  }, [isActive])
 
   return (
     <div style={{

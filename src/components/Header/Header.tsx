@@ -3,14 +3,20 @@ import styles from "./header.module.scss";
 import Link from "next/link";
 import Button from "@/UI/Button/Button";
 import {useClassMobile} from "@/hooks/useClassMobile";
-import {motion, Variants} from "framer-motion";
-import {Navigation} from "@/exports/globalVars";
+import {motion} from "framer-motion";
+import {Links} from "@/exports/globalVars";
 import CurtainTop from "@/components/Header/CurtainTop";
 import Menu from "@/components/Header/Menu/Menu";
 
-const Header = ({topNav, bottomNav}: Navigation) => {
+interface Header {
+  topNav: Links[],
+  bottomNav: Links[],
+  isActive: boolean,
+  setIsActive: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+const Header = ({topNav, bottomNav, isActive, setIsActive}: Header) => {
   const isMobile = useClassMobile(false);
-  const [isActive, setIsActive] = useState(false);
 
   const [isScrolledDown, setIsScrolledDown] = useState(true);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
@@ -60,6 +66,9 @@ const Header = ({topNav, bottomNav}: Navigation) => {
     };
   }, [prevScrollPos]);
 
+  const changeActiveClass = () => {
+    setIsActive(!isActive)
+  }
 
   return (
     <>
@@ -76,8 +85,8 @@ const Header = ({topNav, bottomNav}: Navigation) => {
               <Link className={styles.header__content_logo} href='/'>
                 <img src="/images/eye.svg" alt="logo"/>
               </Link>
-              <Menu isActive={isActive} showMenu={showMenu} topNav={topNav} isMobile={isMobile} bottomNav={bottomNav}/>
-              <div onClick={() => setIsActive(!isActive)} className={styles.header__content_burger}>
+              <div onClick={changeActiveClass}
+                   className={styles.header__content_burger}>
                 <span></span>
                 <span></span>
                 <span></span>
@@ -87,11 +96,15 @@ const Header = ({topNav, bottomNav}: Navigation) => {
               <Link className={styles.header__content_text} href="/">Join Mystique</Link>
               <div className={styles.header__content_links}>
                 <Button className={"button _small"} title={"Go Tarot"}/>
-                <Button className={"button _small _icon button-dark"} title={"Menu"}/>
+                <Button handleClick={changeActiveClass}
+                        className={"button _small _icon button-dark"}
+                        title={"Menu"}
+                        isLink={false}/>
               </div>
             </nav>
           }
         </div>
+        <Menu isActive={isActive} showMenu={showMenu} topNav={topNav} isMobile={isMobile} bottomNav={bottomNav}/>
       </motion.header>
     </>
   );

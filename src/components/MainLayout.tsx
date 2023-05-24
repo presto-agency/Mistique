@@ -1,5 +1,5 @@
 import Head from "next/head";
-import {ReactNode} from "react";
+import {ReactNode, useState} from "react";
 import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
 import Cursor from "@/components/Cursor/Cursor";
@@ -10,6 +10,7 @@ type MainLayoutProps = {
 };
 
 export function MainLayout({children, title = "Mistique Tarro"}: MainLayoutProps) {
+  const [isActive, setIsActive] = useState(false);
   const topNav= [
     {
       id: 1,
@@ -64,9 +65,9 @@ export function MainLayout({children, title = "Mistique Tarro"}: MainLayoutProps
         <meta name="viewport"
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
       </Head>
-      <Cursor/>
+      <Cursor isActive={isActive} setIsActive={setIsActive}/>
       <div className="wrapper">
-        <Header topNav={topNav} bottomNav={bottomNav}/>
+        <Header topNav={topNav} bottomNav={bottomNav} isActive={isActive} setIsActive={setIsActive}/>
         <main>
           {children}
         </main>
