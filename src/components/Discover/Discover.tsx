@@ -7,13 +7,13 @@ interface y {
   y: MotionValue
 }
 
-const Discover = ({y}:y) => {
+const Discover = ({y}: y) => {
   return (
     <section className={styles.discover}>
+      <img src="/images/home/stars-3.svg" alt="stars" className={styles.discover__stars}/>
       <div className="container">
-        <img src="/images/home/stars-3.svg" alt="stars" className={styles.discover__stars}/>
         <motion.div className={styles.discover__content}
-             style={{y}}
+                    style={{y}}
         >
           <p>
             <small>

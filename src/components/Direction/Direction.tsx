@@ -13,7 +13,6 @@ const Direction = ({y}: y) => {
     <section className={styles.direction}>
       <GlowingStars/>
       <img src="/images/home/stars-4.svg" alt="stars" className={styles.direction__stars}/>
-
       <div className="container">
         <motion.div className={styles.direction__content}
                     style={{y}}

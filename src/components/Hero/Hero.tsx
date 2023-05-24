@@ -5,6 +5,7 @@ import GlowingStars from "@/components/GlowingStars/GlowingStars";
 import {motion, MotionValue} from "framer-motion";
 import HeroAnimation from "@/components/Hero/HeroAnimation";
 import dynamic from "next/dynamic";
+
 const DynamicComponent = dynamic(() => import('./HeroAnimation'), {
   ssr: false, // Ensure it's not rendered on the server-side
 });
@@ -34,9 +35,9 @@ const Hero = ({y}: y) => {
     >
       <GlowingStars/>
       <div className="container">
+        <img className={styles.hero__stars} src="/images/home/stars-1.svg" alt="stars"/>
+        <img className={styles.hero__stars} src="/images/home/stars-2.svg" alt="stars"/>
         <div className={styles.hero__content}>
-          <img src="/images/home/stars-1.svg" alt="stars" className={styles.hero__content_stars}/>
-          <img src="/images/home/stars-2.svg" alt="stars" className={styles.hero__content_stars}/>
           <motion.div className={styles.hero__content_animation}
                       style={{y}}
           >
