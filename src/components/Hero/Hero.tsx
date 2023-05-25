@@ -3,11 +3,10 @@ import styles from "./hero.module.scss";
 import Button from "@/UI/Button/Button";
 import GlowingStars from "@/components/GlowingStars/GlowingStars";
 import {motion, MotionValue} from "framer-motion";
-import HeroAnimation from "@/components/Hero/HeroAnimation";
 import dynamic from "next/dynamic";
 
 const DynamicComponent = dynamic(() => import('./HeroAnimation'), {
-  ssr: false, // Ensure it's not rendered on the server-side
+  ssr: false,
 });
 
 interface y {

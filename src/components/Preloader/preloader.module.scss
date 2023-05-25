@@ -1,0 +1,51 @@
+@import "../../styles/variables.scss";
+
+.preloader {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $color-primary;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__content {
+    position: relative;
+
+    &_body {
+      width: 175px;
+      height: 114px;
+    }
+
+    &_eye {
+      position: absolute;
+      top: 16px;
+      left: 80px;
+      width: 10px;
+      height: 10px;
+      transform: translateY(-2px) translateX(0);
+      animation: move-eye 2000ms cubic-bezier(.18, .88, .56, 1.11) infinite;
+
+      @keyframes move-eye {
+        0% {
+          transform: translateY(-2px) translateX(0);
+        }
+        25% {
+          transform: translateY(0) translateX(5px);
+        }
+        50% {
+          transform: translateY(2px) translateX(0);
+        }
+        75% {
+          transform: translateY(0) translateX(-5px);
+        }
+        100% {
+          transform: translateY(-2px) translateX(0);
+        }
+      }
+    }
+  }
+}

@@ -5,6 +5,7 @@ import TarotLinks from "@/components/TarotLinks/TarotLinks";
 import Discover from "@/components/Discover/Discover";
 import Direction from "@/components/Direction/Direction";
 import {MotionValue, useScroll, useTransform} from "framer-motion";
+import Preloader from "@/components/Preloader/Preloader";
 
 export default function Home() {
   let useParallax = (value: MotionValue<number>)=> {
