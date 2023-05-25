@@ -7,7 +7,7 @@ interface y {
   y: MotionValue
 }
 
-const TarotLinks = ({y}: y) => {
+const TarotLinks: React.FC<y> = ({y}) => {
   const tarotLinks = [
     {
       id: 1,

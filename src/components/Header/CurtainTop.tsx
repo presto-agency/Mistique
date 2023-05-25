@@ -6,7 +6,7 @@ interface ScrolledDown{
   isScrolledDown: boolean
 }
 
-const CurtainTop = ({isScrolledDown}:ScrolledDown) => {
+const CurtainTop:React.FC<ScrolledDown> = ({isScrolledDown}) => {
   const isMobile = useClassMobile(false);
   const showCurtain = {
     open: {

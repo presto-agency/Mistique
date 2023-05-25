@@ -6,7 +6,7 @@ interface Cursor{
   isActive: boolean
 }
 
-const Cursor = ({isActive}: Cursor) => {
+const Cursor:React.FC<Cursor> = ({isActive}) => {
   const [cursorVariant, setCursorVariant] = useState("default");
 
   const [mousePosition, setMousePosition] = useState({

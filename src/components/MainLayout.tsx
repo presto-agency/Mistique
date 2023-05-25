@@ -1,5 +1,5 @@
 import Head from "next/head";
-import {ReactNode, useState} from "react";
+import React, {ReactNode, useState} from "react";
 import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
 import Cursor from "@/components/Cursor/Cursor";
@@ -10,9 +10,9 @@ type MainLayoutProps = {
   title: string;
 };
 
-export function MainLayout({children, title = "Mistique Tarro"}: MainLayoutProps) {
+export const MainLayout: React.FC<MainLayoutProps> = ({children, title = "Mistique Tarro"}) => {
   const [isActive, setIsActive] = useState(false);
-  const topNav= [
+  const topNav = [
     {
       id: 1,
       url: "/",
@@ -39,7 +39,7 @@ export function MainLayout({children, title = "Mistique Tarro"}: MainLayoutProps
       title: "Privacy"
     },
   ];
-  const bottomNav= [
+  const bottomNav = [
     {
       id: 1,
       url: "/Terms",

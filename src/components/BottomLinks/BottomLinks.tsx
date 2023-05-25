@@ -7,7 +7,7 @@ interface BottomNav {
   bottomNav: Links[]
 }
 
-const BottomLinks = ({bottomNav}:BottomNav)=> {
+const BottomLinks: React.FC<BottomNav> = ({bottomNav}) => {
   return (
     <div className={styles.bottom}>
       <ul>

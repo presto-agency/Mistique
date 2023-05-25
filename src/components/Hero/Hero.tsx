@@ -13,7 +13,7 @@ interface y {
   y: MotionValue
 }
 
-const Hero = ({y}: y) => {
+const Hero:React.FC<y> = ({y}) => {
 
   return (
     <section className={styles.hero}>

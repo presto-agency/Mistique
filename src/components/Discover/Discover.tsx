@@ -7,7 +7,7 @@ interface y {
   y: MotionValue
 }
 
-const Discover = ({y}: y) => {
+const Discover: React.FC<y> = ({y}) => {
   return (
     <section className={styles.discover}>
       <img src="/images/home/stars-3.svg" alt="stars" className={styles.discover__stars}/>

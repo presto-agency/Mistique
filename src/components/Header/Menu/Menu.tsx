@@ -14,13 +14,13 @@ interface Menu {
   bottomNav: Links[]
 }
 
-const Menu = ({
-                isActive,
-                showMenu,
-                topNav,
-                isMobile,
-                bottomNav
-              }: Menu) => {
+const Menu: React.FC<Menu> = ({
+                                isActive,
+                                showMenu,
+                                topNav,
+                                isMobile,
+                                bottomNav
+                              }) => {
   return (
     <AnimatePresence>
       {isActive &&

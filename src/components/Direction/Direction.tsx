@@ -8,7 +8,7 @@ interface y {
   y: MotionValue
 }
 
-const Direction = ({y}: y) => {
+const Direction: React.FC<y> = ({y}) => {
   return (
     <section className={styles.direction}>
       <GlowingStars/>

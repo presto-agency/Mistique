@@ -15,12 +15,12 @@ interface Header {
   setIsActive: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const Header = ({
-                  topNav,
-                  bottomNav,
-                  isActive,
-                  setIsActive
-                }: Header) => {
+const Header: React.FC<Header> = ({
+                                    topNav,
+                                    bottomNav,
+                                    isActive,
+                                    setIsActive
+                                  }) => {
   const isMobile = useClassMobile(false);
 
   const [isScrolledDown, setIsScrolledDown] = useState(true);
