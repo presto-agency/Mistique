@@ -2,8 +2,9 @@ import type {AppProps} from "next/app"
 import "../styles/style.scss"
 import {useEffect, useState} from "react";
 import Preloader from "@/components/Preloader/Preloader";
+import {AnimatePresence} from "framer-motion";
 
-const MyApp = ({ Component, pageProps }: AppProps) => {
+const MyApp = ({Component, pageProps}: AppProps) => {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -20,13 +21,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   }, []);
 
   return (
-    <div>
-      {isLoading ? (
-        <Preloader />
-      ) : (
-        <Component {...pageProps} />
-      )}
-    </div>
+    <AnimatePresence>{isLoading ? <Preloader/> : <Component {...pageProps} />}</AnimatePresence>
   );
 };
 
