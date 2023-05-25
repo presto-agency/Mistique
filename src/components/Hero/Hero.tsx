@@ -27,15 +27,17 @@ const Hero = ({y}: y) => {
   };
 
   return (
-    <motion.section className={styles.hero}
-                    initial="hidden"
-                    variants={showHero}
-                    animate="open"
-    >
+    <section className={styles.hero}>
       <GlowingStars/>
       <div className="container">
-        <img className={styles.hero__stars} src="/images/home/stars-1.svg" alt="stars"/>
-        <img className={styles.hero__stars} src="/images/home/stars-2.svg" alt="stars"/>
+        <motion.img className={styles.hero__stars} src="/images/home/stars-1.svg" alt="stars"
+                    initial={{opacity: 0}}
+                    animate={{opacity: 1, transition:{duration: 1}}}
+        />
+        <motion.img className={styles.hero__stars} src="/images/home/stars-2.svg" alt="stars"
+                    initial={{opacity: 0}}
+                    animate={{opacity: 1, transition:{duration: 1}}}
+        />
         <div className={styles.hero__content}>
           <motion.div className={styles.hero__content_animation}
                       style={{y}}
@@ -51,7 +53,7 @@ const Hero = ({y}: y) => {
           </motion.div>
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 };
 

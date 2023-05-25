@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {isSafari} from "react-device-detect";
+import {motion} from "framer-motion";
+
 
 const HeroAnimation = () => {
   const movVideo = '/animations/hero-animation.mov';
@@ -17,14 +19,20 @@ const HeroAnimation = () => {
   return (
     <>
       {isSafari ? (
-        <video autoPlay loop muted>
+        <motion.video autoPlay loop muted
+                      initial={{opacity: 0}}
+                      animate={{opacity: 1, transition:{delay:1, duration: 1.5}}}
+        >
           <source src={movVideo} type="video/quicktime"/>
           Your browser does not support the video tag.
-        </video>
+        </motion.video>
       ) : (
-        <video autoPlay loop muted>
+        <motion.video autoPlay loop muted
+                      initial={{opacity: 0}}
+                      animate={{opacity: 1, transition:{delay:1, duration: 1.5}}}
+        >
           <source src={webmVideo} type="video/webm"/>
-        </video>
+        </motion.video>
       )}
     </>
   );

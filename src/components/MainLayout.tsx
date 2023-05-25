@@ -3,6 +3,7 @@ import {ReactNode, useState} from "react";
 import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
 import Cursor from "@/components/Cursor/Cursor";
+import AudioBackground from "@/components/AudioBackground/AudioBackground";
 
 type MainLayoutProps = {
   children: ReactNode;
@@ -58,6 +59,7 @@ export function MainLayout({children, title = "Mistique Tarro"}: MainLayoutProps
 
   return (
     <>
+      {/*<AudioBackground/>*/}
       <Head>
         <title>
           {title}
