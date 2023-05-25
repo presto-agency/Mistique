@@ -8,6 +8,27 @@ interface y {
 }
 
 const Discover: React.FC<y> = ({y}) => {
+  const discoverLinks = [
+    {
+      id: 1,
+      url: "/images/home/major.svg",
+      title: "Major Arcana",
+      description: {
+        top: "See the meaning of the",
+        bottom: "22 major arcana"
+      }
+    },
+    {
+      id: 2,
+      url: "/images/home/minor.svg",
+      title: "Minor Arcana",
+      description: {
+        top: "See the meaning of the",
+        bottom: "56 major arcana"
+      }
+    },
+  ];
+
   return (
     <section className={styles.discover}>
       <img src="/images/home/stars-3.svg" alt="stars" className={styles.discover__stars}/>
@@ -27,28 +48,20 @@ const Discover: React.FC<y> = ({y}) => {
             </strong>
           </p>
           <ul>
-            <li>
-              <img src="/images/home/major.svg" alt="logo"/>
-              <h2>
-                Major Arcana
-              </h2>
-              <p>
-                See the meaning of the<br/>
-                <strong>22 major arcana</strong>
-              </p>
-              <Button className={"button button-light"} title={"Read more"}/>
-            </li>
-            <li>
-              <img src="/images/home/minor.svg" alt="logo"/>
-              <h2>
-                Minor Arcana
-              </h2>
-              <p>
-                See the meaning of the<br/>
-                <strong>56 major arcana</strong>
-              </p>
-              <Button className={"button button-light"} title={"Read more"}/>
-            </li>
+            {discoverLinks.map(item => (
+              <li key={item.id}>
+                <img src={item.url} alt="logo"/>
+                <h2>
+                  {item.title}
+                </h2>
+                <p>
+                  {item.description.top}
+                  <br/>
+                  <strong>{item.description.bottom}</strong>
+                </p>
+                <Button className={"button button-light"} title={"Read more"}/>
+              </li>
+            ))}
           </ul>
         </motion.div>
       </div>
