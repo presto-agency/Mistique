@@ -23,15 +23,19 @@ const HeroAnimation = () => {
                       initial={{opacity: 0}}
                       animate={{opacity: 1, transition:{delay:1, duration: 1.5}}}
         >
-          <source src={movVideo} type="video/quicktime"/>
+          <source src={movVideo}
+                  type="video/quicktime"/>
           Your browser does not support the video tag.
         </motion.video>
       ) : (
-        <motion.video autoPlay loop muted
+        <motion.video autoPlay
+                      loop
+                      muted
                       initial={{opacity: 0}}
                       animate={{opacity: 1, transition:{delay:1, duration: 1.5}}}
         >
-          <source src={webmVideo} type="video/webm"/>
+          <source src={webmVideo}
+                  type="video/webm"/>
         </motion.video>
       )}
     </>

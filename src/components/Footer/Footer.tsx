@@ -7,7 +7,10 @@ import BottomLinks from "@/components/BottomLinks/BottomLinks";
 import {Navigation} from "@/exports/globalVars";
 import CurtainBottom from "@/components/Footer/CurtainBottom";
 
-const Footer = ({topNav, bottomNav}:Navigation) => {
+const Footer = ({
+                  topNav,
+                  bottomNav
+                }: Navigation) => {
 
   const isMobile = useClassMobile(false);
 

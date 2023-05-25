@@ -1,5 +1,4 @@
 //vars
-import {MotionStyle} from "framer-motion";
 
 export const mobSize: number = 567;
 

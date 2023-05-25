@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {AnimatePresence, motion, Variants} from "framer-motion";
 import styles from "@/components/Header/Menu/menu.module.scss";
 import Link from "next/link";
@@ -14,7 +14,13 @@ interface Menu {
   bottomNav: Links[]
 }
 
-const Menu = ({isActive, showMenu, topNav, isMobile, bottomNav}: Menu) => {
+const Menu = ({
+                isActive,
+                showMenu,
+                topNav,
+                isMobile,
+                bottomNav
+              }: Menu) => {
   return (
     <AnimatePresence>
       {isActive &&

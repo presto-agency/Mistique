@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {useClassMobile} from "@/hooks/useClassMobile";
 import {motion} from "framer-motion";
 

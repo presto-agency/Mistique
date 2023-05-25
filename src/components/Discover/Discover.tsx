@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import styles from "./discover.module.scss";
 import Button from "@/UI/Button/Button";
 import {MotionValue, motion} from "framer-motion";

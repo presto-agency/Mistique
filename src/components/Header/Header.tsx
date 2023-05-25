@@ -15,7 +15,12 @@ interface Header {
   setIsActive: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const Header = ({topNav, bottomNav, isActive, setIsActive}: Header) => {
+const Header = ({
+                  topNav,
+                  bottomNav,
+                  isActive,
+                  setIsActive
+                }: Header) => {
   const isMobile = useClassMobile(false);
 
   const [isScrolledDown, setIsScrolledDown] = useState(true);
@@ -93,7 +98,8 @@ const Header = ({topNav, bottomNav, isActive, setIsActive}: Header) => {
               </div>
             </nav>
             : <nav className={styles.header__content}>
-              <Link className={styles.header__content_text} href="/">Join Mystique</Link>
+              <Link className={styles.header__content_text}
+                    href="/">Join Mystique</Link>
               <div className={styles.header__content_links}>
                 <Button className={"button _small"} title={"Go Tarot"}/>
                 <Button handleClick={changeActiveClass}
@@ -104,7 +110,11 @@ const Header = ({topNav, bottomNav, isActive, setIsActive}: Header) => {
             </nav>
           }
         </div>
-        <Menu isActive={isActive} showMenu={showMenu} topNav={topNav} isMobile={isMobile} bottomNav={bottomNav}/>
+        <Menu isActive={isActive}
+              showMenu={showMenu}
+              topNav={topNav}
+              isMobile={isMobile}
+              bottomNav={bottomNav}/>
       </motion.header>
     </>
   );

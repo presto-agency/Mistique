@@ -8,7 +8,12 @@ type Button = {
   handleClick?: MouseEventHandler<HTMLButtonElement>
 }
 
-const Button = ({title, className, isLink = true, handleClick}: Button) => {
+const Button = ({
+                  title,
+                  className,
+                  isLink = true,
+                  handleClick
+                }: Button) => {
   if (isLink) {
     return (
       <Link href="#" className={className}>

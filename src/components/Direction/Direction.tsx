@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import styles from "./direction.module.scss";
 import Button from "@/UI/Button/Button";
 import GlowingStars from "@/components/GlowingStars/GlowingStars";

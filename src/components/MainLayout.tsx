@@ -69,11 +69,15 @@ export function MainLayout({children, title = "Mistique Tarro"}: MainLayoutProps
       </Head>
       <Cursor isActive={isActive}/>
       <div className="wrapper">
-        <Header topNav={topNav} bottomNav={bottomNav} isActive={isActive} setIsActive={setIsActive}/>
+        <Header topNav={topNav}
+                bottomNav={bottomNav}
+                isActive={isActive}
+                setIsActive={setIsActive}/>
         <main>
           {children}
         </main>
-        <Footer topNav={topNav} bottomNav={bottomNav}/>
+        <Footer topNav={topNav}
+                bottomNav={bottomNav}/>
       </div>
     </>
   )
