@@ -2,12 +2,25 @@ import React from 'react';
 import Link from "next/link";
 import styles from "./tarotLinks.module.scss";
 import {MotionValue, motion} from "framer-motion";
+import dynamic from "next/dynamic";
+
+interface TarotAnimationProps{
+  svg: string,
+  webm: string,
+  mp4:string
+}
 
 interface y {
   y: MotionValue
 }
 
+const DynamicComponent = dynamic<TarotAnimationProps>(() => import("./TarotAnimation"), {
+  ssr: false,
+});
+
+
 const TarotLinks: React.FC<y> = ({y}) => {
+
   const tarotLinks = [
     {
       id: 1,
@@ -15,7 +28,8 @@ const TarotLinks: React.FC<y> = ({y}) => {
       title: "Latin Tarot",
       resource: {
         webm: '/animations/1.webm',
-        mp4: '/animations/1_1.mp4'
+        mp4: '/animations/1_1.mp4',
+        svg: '/images/home/tarot-1.svg'
       }
     },
     {
@@ -24,7 +38,8 @@ const TarotLinks: React.FC<y> = ({y}) => {
       title: "Love Tarot",
       resource: {
         webm: '/animations/3.webm',
-        mp4: '/animations/3_3.mp4'
+        mp4: '/animations/3_3.mp4',
+        svg: '/images/home/tarot-2.svg'
       }
     },
     {
@@ -33,7 +48,8 @@ const TarotLinks: React.FC<y> = ({y}) => {
       title: "Yes / No Tarot",
       resource: {
         webm: '/animations/2.webm',
-        mp4: '/animations/2_2.mp4'
+        mp4: '/animations/2_2.mp4',
+        svg: '/images/home/tarot-3.svg'
       }
     }
   ];
@@ -48,10 +64,11 @@ const TarotLinks: React.FC<y> = ({y}) => {
             <li className={styles.links__item} key={item.id}>
               <Link href={item.url}>
                 <div className={styles.links__item_animation}>
-                  <video autoPlay loop muted>
-                    <source src={item.resource.webm} type="video/webm"/>
-                    <source src={item.resource.mp4} type="video/mp4"/>
-                  </video>
+                  <DynamicComponent
+                    svg={item.resource.svg}
+                    webm={item.resource.webm}
+                    mp4={item.resource.mp4}
+                  />
                 </div>
                 <p>
                   {item.title}
