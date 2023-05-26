@@ -24,21 +24,6 @@ const Header: React.FC<Header> = ({
                                   }) => {
   const isMobile = useClassMobile(false);
   const isScrolledDown = useScrollDown(true);
-
-
-  const showMenu = {
-    open: {
-      opacity: 1,
-      scale: 1,
-      filter: "blur(0px)",
-    },
-    hidden: {
-      opacity: 0,
-      scale: 1.1,
-      filter: "blur(10px)"
-    },
-  };
-
   const showHeader = {
     open: {
       opacity: 1,
@@ -50,15 +35,13 @@ const Header: React.FC<Header> = ({
       opacity: 0,
     },
   };
+  const changeActiveClass = () => {
+    setIsActive(!isActive)
+  }
 
   useEffect(() => {
     document.body.style.overflow = isActive ? "hidden" : "auto";
   }, [isActive]);
-
-
-  const changeActiveClass = () => {
-    setIsActive(!isActive)
-  }
 
   return (
     <>
@@ -96,7 +79,6 @@ const Header: React.FC<Header> = ({
           }
         </div>
         <Menu isActive={isActive}
-              showMenu={showMenu}
               topNav={topNav}
               isMobile={isMobile}
               bottomNav={bottomNav}/>

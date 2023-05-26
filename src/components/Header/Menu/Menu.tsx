@@ -8,7 +8,6 @@ import {Links} from "@/exports/globalVars";
 
 interface Menu {
   isActive: boolean,
-  showMenu: Variants,
   topNav: Links[],
   isMobile: boolean,
   bottomNav: Links[]
@@ -16,11 +15,24 @@ interface Menu {
 
 const Menu: React.FC<Menu> = ({
                                 isActive,
-                                showMenu,
                                 topNav,
                                 isMobile,
                                 bottomNav
                               }) => {
+  const showMenu = {
+    open: {
+      opacity: 1,
+      scale: 1,
+      filter: "blur(0px)",
+    },
+    hidden: {
+      opacity: 0,
+      scale: 1.1,
+      filter: "blur(10px)"
+    },
+  };
+
+
   return (
     <AnimatePresence>
       {isActive &&
