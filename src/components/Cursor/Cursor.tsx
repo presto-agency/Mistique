@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import styles from "./cursor.module.scss";
 import {motion} from "framer-motion";
 import {useSelector} from "react-redux";
+import {useScrollPosition} from "@/hooks/useScrollPosition";
 
 type ToggleState = {
   toggle: {
@@ -9,14 +10,12 @@ type ToggleState = {
   };
 };
 
+
 const Cursor:React.FC = () => {
   const isActive = useSelector<ToggleState>((state) => state.toggle.isActive);
   const [cursorVariant, setCursorVariant] = useState("default");
+  const { scrollPosition: mousePosition } = useScrollPosition({ x: 0, y: 0 });
 
-  const [mousePosition, setMousePosition] = useState({
-    x: 0,
-    y: 0
-  })
 
   const variants = {
     default: {
@@ -54,18 +53,6 @@ const Cursor:React.FC = () => {
         link.addEventListener("mouseenter", onLink);
         link.addEventListener("mouseleave", leaveLink);
       });
-    }
-    const mouseMove = (e:MouseEvent) => {
-      setMousePosition({
-        x: e.clientX,
-        y: e.clientY
-      })
-    }
-
-    window.addEventListener("mousemove", mouseMove);
-
-    return () => {
-      window.removeEventListener("mousemove", mouseMove)
     }
 
   }, [isActive])
