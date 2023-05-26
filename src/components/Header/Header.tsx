@@ -1,8 +1,9 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import styles from "./header.module.scss";
 import Link from "next/link";
 import Button from "@/UI/Button/Button";
 import {useClassMobile} from "@/hooks/useClassMobile";
+import {useScrollDown} from "@/hooks/useScrollDown";
 import {motion} from "framer-motion";
 import {Links} from "@/exports/globalVars";
 import CurtainTop from "@/components/Header/CurtainTop";
@@ -22,9 +23,8 @@ const Header: React.FC<Header> = ({
                                     setIsActive
                                   }) => {
   const isMobile = useClassMobile(false);
+  const isScrolledDown = useScrollDown(true);
 
-  const [isScrolledDown, setIsScrolledDown] = useState(true);
-  const [prevScrollPos, setPrevScrollPos] = useState(0);
 
   const showMenu = {
     open: {
@@ -55,23 +55,6 @@ const Header: React.FC<Header> = ({
     document.body.style.overflow = isActive ? "hidden" : "auto";
   }, [isActive]);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollPos = window.scrollY;
-      const isScrollingDown = currentScrollPos > prevScrollPos;
-
-      if (Math.abs(currentScrollPos - prevScrollPos) > 80) {
-        setIsScrolledDown(!(isScrollingDown && currentScrollPos > 0));
-        setPrevScrollPos(currentScrollPos);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [prevScrollPos]);
 
   const changeActiveClass = () => {
     setIsActive(!isActive)
