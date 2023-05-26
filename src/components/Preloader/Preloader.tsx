@@ -1,16 +1,14 @@
 import React from 'react';
 import styles from "./preloader.module.scss";
-import {AnimatePresence, motion} from "framer-motion";
+import {motion} from "framer-motion";
 
 
 const Preloader = () => {
 
   return (
-    <AnimatePresence>
       <motion.div className={styles.preloader}
                   initial={{opacity: 0}}
                   animate={{opacity: 1, transition:{duration: 1}}}
-                  exit={{opacity:0}}
       >
         <div className={styles.preloader__content}>
           <svg className={styles.preloader__content_body} viewBox="0 0 175 114" fill="none"
@@ -39,7 +37,6 @@ const Preloader = () => {
           </svg>
         </div>
       </motion.div>
-    </AnimatePresence>
   );
 };
 
