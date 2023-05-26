@@ -8,22 +8,33 @@ import {motion} from "framer-motion";
 import {Links} from "@/exports/globalVars";
 import CurtainTop from "@/components/Header/CurtainTop";
 import Menu from "@/components/Header/Menu/Menu";
+import {useDispatch, useSelector} from "react-redux";
+import {toggleActive} from "@/store/reducers/toggleSlice";
 
 interface Header {
   topNav: Links[],
   bottomNav: Links[],
-  isActive: boolean,
-  setIsActive: React.Dispatch<React.SetStateAction<boolean>>
 }
+
+type ToggleState = {
+  toggle: {
+    isActive: boolean;
+  };
+};
 
 const Header: React.FC<Header> = ({
                                     topNav,
                                     bottomNav,
-                                    isActive,
-                                    setIsActive
                                   }) => {
   const isMobile = useClassMobile(false);
   const isScrolledDown = useScrollDown(true);
+  const isActive = useSelector<ToggleState>((state) => state.toggle.isActive);
+  const dispatch = useDispatch();
+
+  const changeActiveClass = () => {
+    dispatch(toggleActive());
+  };
+
   const showHeader = {
     open: {
       opacity: 1,
@@ -35,9 +46,6 @@ const Header: React.FC<Header> = ({
       opacity: 0,
     },
   };
-  const changeActiveClass = () => {
-    setIsActive(!isActive)
-  }
 
   useEffect(() => {
     document.body.style.overflow = isActive ? "hidden" : "auto";
@@ -78,8 +86,7 @@ const Header: React.FC<Header> = ({
             </nav>
           }
         </div>
-        <Menu isActive={isActive}
-              topNav={topNav}
+        <Menu topNav={topNav}
               isMobile={isMobile}
               bottomNav={bottomNav}/>
       </motion.header>

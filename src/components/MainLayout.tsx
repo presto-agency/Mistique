@@ -11,7 +11,6 @@ type MainLayoutProps = {
 };
 
 export const MainLayout: React.FC<MainLayoutProps> = ({children, title = "Mistique Tarro"}) => {
-  const [isActive, setIsActive] = useState(false);
   const topNav = [
     {
       id: 1,
@@ -67,12 +66,11 @@ export const MainLayout: React.FC<MainLayoutProps> = ({children, title = "Mistiq
         <meta name="viewport"
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
       </Head>
-      <Cursor isActive={isActive}/>
+      <Cursor/>
       <div className="wrapper">
         <Header topNav={topNav}
                 bottomNav={bottomNav}
-                isActive={isActive}
-                setIsActive={setIsActive}/>
+                />
         <main>
           {children}
         </main>

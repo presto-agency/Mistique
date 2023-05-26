@@ -1,12 +1,16 @@
 import React, {useEffect, useState} from "react";
 import styles from "./cursor.module.scss";
 import {motion} from "framer-motion";
+import {useSelector} from "react-redux";
 
-interface Cursor{
-  isActive: boolean
-}
+type ToggleState = {
+  toggle: {
+    isActive: boolean;
+  };
+};
 
-const Cursor:React.FC<Cursor> = ({isActive}) => {
+const Cursor:React.FC = () => {
+  const isActive = useSelector<ToggleState>((state) => state.toggle.isActive);
   const [cursorVariant, setCursorVariant] = useState("default");
 
   const [mousePosition, setMousePosition] = useState({

@@ -5,20 +5,27 @@ import Link from "next/link";
 import Button from "@/UI/Button/Button";
 import BottomLinks from "@/components/BottomLinks/BottomLinks";
 import {Links} from "@/exports/globalVars";
+import {useSelector} from "react-redux";
 
 interface Menu {
-  isActive: boolean,
   topNav: Links[],
   isMobile: boolean,
   bottomNav: Links[]
 }
 
+type ToggleState = {
+  toggle: {
+    isActive: boolean;
+  };
+};
+
 const Menu: React.FC<Menu> = ({
-                                isActive,
                                 topNav,
                                 isMobile,
                                 bottomNav
                               }) => {
+  const isActive = useSelector<ToggleState>((state) => state.toggle.isActive) as boolean;
+
   const showMenu = {
     open: {
       opacity: 1,
