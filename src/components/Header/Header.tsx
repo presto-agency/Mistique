@@ -60,8 +60,10 @@ const Header: React.FC<Header> = ({
       const currentScrollPos = window.scrollY;
       const isScrollingDown = currentScrollPos > prevScrollPos;
 
-      setIsScrolledDown(!(isScrollingDown && currentScrollPos > 0));
-      setPrevScrollPos(currentScrollPos);
+      if (Math.abs(currentScrollPos - prevScrollPos) > 80) {
+        setIsScrolledDown(!(isScrollingDown && currentScrollPos > 0));
+        setPrevScrollPos(currentScrollPos);
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
