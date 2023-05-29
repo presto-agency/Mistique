@@ -11,40 +11,47 @@ import Menu from "@/components/Header/Menu/Menu";
 import {useDispatch, useSelector} from "react-redux";
 import {toggleActive} from "@/store/reducers/toggleSlice";
 
-interface Header {
-  topNav: Links[],
-  bottomNav: Links[],
-}
-
 type ToggleState = {
   toggle: {
     isActive: boolean;
-  };
+  }
 };
 
-const Header: React.FC<Header> = ({
-                                    topNav,
-                                    bottomNav,
-                                  }) => {
+type HeroContent = {
+  heroContent: {
+    navigation: {
+      topNav: Links[],
+      bottomNav: Links[]
+    }
+  }
+}
+
+type Navigation = {
+  topNav: Links[],
+  bottomNav: Links[]
+}
+
+const showHeader = {
+  open: {
+    opacity: 1,
+    transition: {
+      delay: 0.5,
+    }
+  },
+  hidden: {
+    opacity: 0,
+  },
+};
+
+const Header: React.FC = () => {
   const isMobile = useClassMobile(false);
   const isScrolledDown = useScrollDown(true);
-  const isActive = useSelector<ToggleState>((state) => state.toggle.isActive);
+  const isActive = useSelector<ToggleState>((state) => state.toggle.isActive) as boolean;
+  const navigation = useSelector<HeroContent>((state) => state.heroContent.navigation) as Navigation;
   const dispatch = useDispatch();
 
-  const changeActiveClass = () => {
-    dispatch(toggleActive());
-  };
-
-  const showHeader = {
-    open: {
-      opacity: 1,
-      transition: {
-        delay: 0.5,
-      }
-    },
-    hidden: {
-      opacity: 0,
-    },
+  const changeActiveClass = (isActive: any) => {
+    dispatch(toggleActive(isActive));
   };
 
   useEffect(() => {
@@ -86,9 +93,9 @@ const Header: React.FC<Header> = ({
             </nav>
           }
         </div>
-        <Menu topNav={topNav}
+        <Menu topNav={navigation.topNav}
               isMobile={isMobile}
-              bottomNav={bottomNav}/>
+              bottomNav={navigation.bottomNav}/>
       </motion.header>
     </>
   );

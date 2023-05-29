@@ -4,15 +4,28 @@ import Link from "next/link";
 import Button from "@/UI/Button/Button";
 import {useClassMobile} from "@/hooks/useClassMobile";
 import BottomLinks from "@/components/BottomLinks/BottomLinks";
-import {Navigation} from "@/exports/globalVars";
+import {Links} from "@/exports/globalVars";
 import CurtainBottom from "@/components/Footer/CurtainBottom";
+import {useSelector} from "react-redux";
 
-const Footer: React.FC<Navigation> = ({
-                                        topNav,
-                                        bottomNav
-                                      }) => {
+type HeroContent = {
+  heroContent: {
+    navigation: {
+      topNav: Links[],
+      bottomNav: Links[]
+    }
+  }
+}
+
+type Navigation = {
+  topNav: Links[],
+  bottomNav: Links[]
+}
+
+const Footer: React.FC = () => {
 
   const isMobile = useClassMobile(false);
+  const navigation = useSelector<HeroContent>((state) => state.heroContent.navigation) as Navigation;
 
   return (
     <>
@@ -27,7 +40,7 @@ const Footer: React.FC<Navigation> = ({
                 Join Mystique
               </h2>
               <ul>
-                {topNav.map(item => (
+                {navigation.topNav.map(item => (
                   <li className="nav-link" key={item.id}>
                     <Link href={item.url}>{item.title}</Link>
                   </li>
@@ -36,7 +49,7 @@ const Footer: React.FC<Navigation> = ({
               <Button className={isMobile ? "button button-dark" : "button"}
                       title={"Get answers - Tarot reading now!"}/>
             </div>
-            <BottomLinks bottomNav={bottomNav}/>
+            <BottomLinks bottomNav={navigation.bottomNav}/>
           </div>
         </div>
       </footer>

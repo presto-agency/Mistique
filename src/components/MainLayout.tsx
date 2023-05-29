@@ -68,14 +68,11 @@ export const MainLayout: React.FC<MainLayoutProps> = ({children, title = "Mistiq
       </Head>
       <Cursor/>
       <div className="wrapper">
-        <Header topNav={topNav}
-                bottomNav={bottomNav}
-                />
+        <Header/>
         <main>
           {children}
         </main>
-        <Footer topNav={topNav}
-                bottomNav={bottomNav}/>
+        <Footer/>
       </div>
     </>
   )
