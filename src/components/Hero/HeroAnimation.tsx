@@ -31,10 +31,7 @@ const HeroAnimation = () => {
               <source src="/images/home/hero.svg" type="image/svg+xml"/>
             </video>
           ) : (
-            <video autoPlay
-                   loop
-                   muted
-            >
+            <video autoPlay loop muted>
               <source src={webmVideo}
                       type="video/webm"/>
               <source src="/images/home/hero.svg" type="image/svg+xml"/>
