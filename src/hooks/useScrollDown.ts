@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState} from "react";
 
 export const useScrollDown = (initialValue: boolean) => {
   const [isScrolledDown, setIsScrolledDown] = useState(initialValue);
@@ -15,10 +15,10 @@ export const useScrollDown = (initialValue: boolean) => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, [prevScrollPos]);
 

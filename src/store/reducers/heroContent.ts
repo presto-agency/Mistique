@@ -3,7 +3,8 @@ import {Links} from "@/exports/globalVars";
 
 interface Navigation {
     topNav: Links[],
-    bottomNav: Links[]
+    bottomNav: Links[],
+    tarotLinks: Links[]
 }
 
 interface Nav {
@@ -55,7 +56,39 @@ const initialState: Nav = {
         url: "/Cookies",
         title: "Cookies"
       },
-    ]
+    ],
+    tarotLinks : [
+      {
+        id: 1,
+        url: "/LatinTarot",
+        title: "Latin Tarot",
+        resource: {
+          webm: '/animations/1.webm',
+          mp4: '/animations/1_1.mp4',
+          svg: '/images/home/tarot-1.svg'
+        }
+      },
+      {
+        id: 2,
+        url: "/LoveTarot",
+        title: "Love Tarot",
+        resource: {
+          webm: '/animations/3.webm',
+          mp4: '/animations/3_3.mp4',
+          svg: '/images/home/tarot-2.svg'
+        }
+      },
+      {
+        id: 3,
+        url: "/YesNoTarot",
+        title: "Yes / No Tarot",
+        resource: {
+          webm: '/animations/2.webm',
+          mp4: '/animations/2_2.mp4',
+          svg: '/images/home/tarot-3.svg'
+        }
+      }
+    ],
   }
 };
 

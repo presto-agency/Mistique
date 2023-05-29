@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import styles from "./preloader.module.scss";
 import {motion} from "framer-motion";
 

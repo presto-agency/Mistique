@@ -6,12 +6,23 @@ export const mobSize: number = 567;
 export interface Links {
   id: number,
   url: string,
-  title: string
+  title: string,
+  resource?: {
+    webm: string,
+    mp4: string,
+    svg: string
+  }
 }
 
-export interface Navigation {
-  topNav: Links[],
-  bottomNav: Links[]
+export interface LinksRes {
+  id: number,
+  url: string,
+  title: string,
+  resource: {
+    webm: string,
+    mp4: string,
+    svg: string
+  }
 }
 
 

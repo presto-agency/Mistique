@@ -1,10 +1,23 @@
-import React from 'react';
+import React from "react";
 import Link from "next/link";
 import styles from "./tarotLinks.module.scss";
 import {MotionValue, motion, Variants} from "framer-motion";
 import dynamic from "next/dynamic";
-import {useInView} from 'react-intersection-observer';
+import {useInView} from "react-intersection-observer";
+import {useSelector} from "react-redux";
+import {Links, LinksRes} from "@/exports/globalVars";
 
+type HeroContent = {
+  heroContent: {
+    navigation: {
+      tarotLinks: Links[]
+    }
+  }
+}
+
+type Nav = {
+  tarotLinks: LinksRes[]
+}
 
 interface TarotAnimationProps {
   svg: string,
@@ -25,39 +38,8 @@ const TarotLinks: React.FC<y> = ({y, sectionVariants}) => {
   const [ref, inView] = useInView({
     triggerOnce: true,
   });
-  const tarotLinks = [
-    {
-      id: 1,
-      url: "/LatinTarot",
-      title: "Latin Tarot",
-      resource: {
-        webm: '/animations/1.webm',
-        mp4: '/animations/1_1.mp4',
-        svg: '/images/home/tarot-1.svg'
-      }
-    },
-    {
-      id: 2,
-      url: "/LoveTarot",
-      title: "Love Tarot",
-      resource: {
-        webm: '/animations/3.webm',
-        mp4: '/animations/3_3.mp4',
-        svg: '/images/home/tarot-2.svg'
-      }
-    },
-    {
-      id: 3,
-      url: "/YesNoTarot",
-      title: "Yes / No Tarot",
-      resource: {
-        webm: '/animations/2.webm',
-        mp4: '/animations/2_2.mp4',
-        svg: '/images/home/tarot-3.svg'
-      }
-    }
-  ];
 
+  const navigation = useSelector<HeroContent>((state) => state.heroContent.navigation) as Nav;
   return (
     <motion.section className={styles.tarot}
                     style={{y}}
@@ -65,11 +47,11 @@ const TarotLinks: React.FC<y> = ({y, sectionVariants}) => {
       <motion.div className="container"
                   ref={ref}
                   initial="hidden"
-                  animate={inView ? 'visible' : 'hidden'}
+                  animate={inView ? "visible" : "hidden"}
                   variants={sectionVariants}
       >
         <ul className={styles.links}>
-          {tarotLinks.map(item => (
+          {navigation.tarotLinks.map(item => (
             <li className={styles.links__item} key={item.id}>
               <Link href={item.url}>
                 <div className={styles.links__item_animation}>

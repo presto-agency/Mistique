@@ -1,11 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState} from "react";
 import {isSafari} from "react-device-detect";
 import {useClassMobile} from "@/hooks/useClassMobile";
 
 
 const HeroAnimation = () => {
-  const movVideo = '/animations/hero-animation.mov';
-  const webmVideo = '/animations/hero-animation.webm';
+  const movVideo = "/animations/hero-animation.mov";
+  const webmVideo = "/animations/hero-animation.webm";
   const [isMounted, setIsMounted] = useState(false);
   const isMobile = useClassMobile(false);
 
