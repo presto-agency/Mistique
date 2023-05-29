@@ -3,11 +3,13 @@ import Link from "next/link";
 import styles from "./tarotLinks.module.scss";
 import {MotionValue, motion} from "framer-motion";
 import dynamic from "next/dynamic";
+import {useInView} from 'react-intersection-observer';
 
-interface TarotAnimationProps{
+
+interface TarotAnimationProps {
   svg: string,
   webm: string,
-  mp4:string
+  mp4: string
 }
 
 interface y {
@@ -18,9 +20,22 @@ const DynamicComponent = dynamic<TarotAnimationProps>(() => import("./TarotAnima
   ssr: false,
 });
 
+const sectionVariants = {
+  hidden: {
+    opacity: 0, y: 50, scale: 1.1,
+    filter: "blur(10px)"
+  },
+  visible: {
+    opacity: 1, y: 0, scale: 1,
+    filter: "blur(0px)", transition: {duration: 1}
+  },
+};
+
 
 const TarotLinks: React.FC<y> = ({y}) => {
-
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+  });
   const tarotLinks = [
     {
       id: 1,
@@ -58,7 +73,12 @@ const TarotLinks: React.FC<y> = ({y}) => {
     <motion.section className={styles.tarot}
                     style={{y}}
     >
-      <div className="container">
+      <motion.div className="container"
+                  ref={ref}
+                  initial="hidden"
+                  animate={inView ? 'visible' : 'hidden'}
+                  variants={sectionVariants}
+      >
         <ul className={styles.links}>
           {tarotLinks.map(item => (
             <li className={styles.links__item} key={item.id}>
@@ -77,7 +97,7 @@ const TarotLinks: React.FC<y> = ({y}) => {
             </li>
           ))}
         </ul>
-      </div>
+      </motion.div>
     </motion.section>
   );
 };

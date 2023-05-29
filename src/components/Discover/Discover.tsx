@@ -2,10 +2,22 @@ import React from "react";
 import styles from "./discover.module.scss";
 import Button from "@/UI/Button/Button";
 import {MotionValue, motion} from "framer-motion";
+import {useInView} from "react-intersection-observer";
 
 interface y {
   y: MotionValue
 }
+
+const sectionVariants = {
+  hidden: {
+    opacity: 0, y: 50, scale: 1.1,
+    filter: "blur(10px)"
+  },
+  visible: {
+    opacity: 1, y: 0, scale: 1,
+    filter: "blur(0px)", transition: {duration: 1}
+  },
+};
 
 const Discover: React.FC<y> = ({y}) => {
   const discoverLinks = [
@@ -29,11 +41,20 @@ const Discover: React.FC<y> = ({y}) => {
     },
   ];
 
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+  });
+
   return (
     <section className={styles.discover}>
       <img src="/images/home/stars-3.svg" alt="stars" className={styles.discover__stars}/>
       <img src="/images/home/stars-bg.svg" alt="stars" className={styles.discover__bg}/>
-      <div className="container">
+      <motion.div className="container"
+                  ref={ref}
+                  initial="hidden"
+                  animate={inView ? 'visible' : 'hidden'}
+                  variants={sectionVariants}
+      >
         <motion.div className={styles.discover__content}
                     style={{y}}
         >
@@ -64,7 +85,7 @@ const Discover: React.FC<y> = ({y}) => {
             ))}
           </ul>
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 };

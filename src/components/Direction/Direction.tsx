@@ -3,17 +3,37 @@ import styles from "./direction.module.scss";
 import Button from "@/UI/Button/Button";
 import GlowingStars from "@/components/GlowingStars/GlowingStars";
 import {MotionValue, motion} from "framer-motion";
+import {useInView} from "react-intersection-observer";
 
 interface y {
   y: MotionValue
 }
 
+const sectionVariants = {
+  hidden: {
+    opacity: 0, y: 50, scale: 1.1,
+    filter: "blur(10px)"
+  },
+  visible: {
+    opacity: 1, y: 0, scale: 1,
+    filter: "blur(0px)", transition: {duration: 1}
+  },
+};
+
 const Direction: React.FC<y> = ({y}) => {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+  });
   return (
     <section className={styles.direction}>
       <GlowingStars/>
       <img src="/images/home/stars-4.svg" alt="stars" className={styles.direction__stars}/>
-      <div className="container">
+      <motion.div className="container"
+                  ref={ref}
+                  initial="hidden"
+                  animate={inView ? 'visible' : 'hidden'}
+                  variants={sectionVariants}
+      >
         <motion.div className={styles.direction__content}
                     style={{y}}
         >
@@ -39,7 +59,7 @@ const Direction: React.FC<y> = ({y}) => {
             <Button className={"button button-light"} title={"More articles"}/>
           </div>
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 };
