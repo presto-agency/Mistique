@@ -13,7 +13,7 @@
 
 <h2 id="introduction">Introduction</h2>
 
-This is a front side of "Mystique" project. Created for headless cms.
+This is a front side of "Mystique" project. Created by Next.js. Created for headless cms.
 
 <h2 id="requirements">Requirements</h2>
 
@@ -32,7 +32,6 @@ yarn install
 <h2 id="getting-started">Getting Started</h2>
 
 For develop:
-
 ```bash
 npm run dev
 # or
@@ -46,9 +45,16 @@ npm run build
 yarn build
 ```
 
+Push to Vercel:
+```bash
+npm vercel --prod
+# or
+yarn vercel --prod
+```
+
 <h2 id="configuration">Configuration</h2>
 
-deploy to vercel automatically after push to branch
+Deploy to Vercel automatically after push to branch
 
 deploy:
 [main](https://mistique.vercel.app/),
