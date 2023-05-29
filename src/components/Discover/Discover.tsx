@@ -1,25 +1,15 @@
 import React from "react";
 import styles from "./discover.module.scss";
 import Button from "@/UI/Button/Button";
-import {MotionValue, motion} from "framer-motion";
+import {MotionValue, motion, Variants} from "framer-motion";
 import {useInView} from "react-intersection-observer";
 
 interface y {
-  y: MotionValue
+  y: MotionValue,
+  sectionVariants: Variants
 }
 
-const sectionVariants = {
-  hidden: {
-    opacity: 0, y: 50, scale: 1.1,
-    filter: "blur(10px)"
-  },
-  visible: {
-    opacity: 1, y: 0, scale: 1,
-    filter: "blur(0px)", transition: {duration: 1}
-  },
-};
-
-const Discover: React.FC<y> = ({y}) => {
+const Discover: React.FC<y> = ({y, sectionVariants}) => {
   const discoverLinks = [
     {
       id: 1,
