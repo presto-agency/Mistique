@@ -4,10 +4,19 @@ import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
 import Cursor from "@/components/Cursor/Cursor";
 import AudioBackground from "@/components/AudioBackground/AudioBackground";
+import {useSelector} from "react-redux";
+import Preloader from "@/components/Preloader/Preloader";
+import {AnimatePresence} from "framer-motion";
 
 type MainLayoutProps = {
   children: ReactNode;
   title: string;
+};
+
+type ToggleState = {
+  toggle: {
+    isLoaded: boolean;
+  }
 };
 
 export const MainLayout: React.FC<MainLayoutProps> = ({children, title = "Mistique Tarro"}) => {
@@ -55,6 +64,8 @@ export const MainLayout: React.FC<MainLayoutProps> = ({children, title = "Mistiq
       title: "Cookies"
     },
   ];
+  const isLoading = useSelector<ToggleState>((state) => state.toggle.isLoaded) as boolean;
+
 
   return (
     <>
@@ -66,6 +77,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({children, title = "Mistiq
         <meta name="viewport"
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
       </Head>
+      <AnimatePresence>{!isLoading && <Preloader/>}</AnimatePresence>
       <Cursor/>
       <div className="wrapper">
         <Header/>

@@ -7,8 +7,8 @@ const Preloader = () => {
 
   return (
       <motion.div className={styles.preloader}
-                  initial={{opacity: 0}}
-                  animate={{opacity: 1, transition:{duration: 1}}}
+                  initial={{opacity: 1}}
+                  exit={{opacity: 0, transition:{duration: 0.3}}}
       >
         <div className={styles.preloader__content}>
           <svg className={styles.preloader__content_body} viewBox="0 0 175 114" fill="none"

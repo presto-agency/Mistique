@@ -17,6 +17,12 @@ type ToggleState = {
   }
 };
 
+type LoadedState = {
+  toggle: {
+    isLoaded: boolean;
+  }
+};
+
 type HeroContent = {
   heroContent: {
     navigation: {
@@ -47,11 +53,12 @@ const Header: React.FC = () => {
   const isMobile = useClassMobile(false);
   const isScrolledDown = useScrollDown(true);
   const isActive = useSelector<ToggleState>((state) => state.toggle.isActive) as boolean;
+  const isLoading = useSelector<LoadedState>((state) => state.toggle.isLoaded) as boolean;
   const navigation = useSelector<HeroContent>((state) => state.heroContent.navigation) as Navigation;
   const dispatch = useDispatch();
 
-  const changeActiveClass = (isActive: any) => {
-    dispatch(toggleActive(isActive));
+  const changeActiveClass = () => {
+    dispatch(toggleActive());
   };
 
   useEffect(() => {
@@ -60,7 +67,7 @@ const Header: React.FC = () => {
 
   return (
     <>
-      <CurtainTop isScrolledDown={isScrolledDown}/>
+      {isLoading&&<CurtainTop isScrolledDown={isScrolledDown}/>}
       <motion.header className={`${styles.header} ${isActive ? styles.active : ""}`}
                      initial="hidden"
                      animate={isScrolledDown ? 'open' : 'hidden'}

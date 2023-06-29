@@ -1,24 +1,38 @@
 import React from "react";
 import {useClassMobile} from "@/hooks/useClassMobile";
 import {motion} from "framer-motion";
+import {useSelector} from "react-redux";
 
 interface ScrolledDown{
   isScrolledDown: boolean
 }
 
+type ToggleState = {
+  toggle: {
+    isLoaded: boolean;
+  }
+};
+
 const CurtainTop:React.FC<ScrolledDown> = ({isScrolledDown}) => {
   const isMobile = useClassMobile(false);
+  const isLoading = useSelector<ToggleState>((state) => state.toggle.isLoaded) as boolean;
   const showCurtain = {
     open: {
-      y: 0
+      y: 0,
+      transition: {
+        duration: 0.5,
+      }
     },
     hidden: {
       y: "-100%",
       transition: {
+        duration: 0.5,
         delay: 0.3
       }
     },
   };
+
+  const animation = isScrolledDown ? "open" : "hidden";
 
   return (
     <>
@@ -27,8 +41,7 @@ const CurtainTop:React.FC<ScrolledDown> = ({isScrolledDown}) => {
         <motion.svg className="curtain curtain-top" viewBox="0 0 360 153" fill="none" xmlns="http://www.w3.org/2000/svg"
                     initial="hidden"
                     variants={showCurtain}
-                    animate={isScrolledDown ? "open" : "hidden"}
-                    transition={{duration: 0.5}}
+                    animate={animation}
         >
           <g clipPath="url(#clip0_14526_6612)">
             <g clipPath="url(#clip1_14526_6612)">

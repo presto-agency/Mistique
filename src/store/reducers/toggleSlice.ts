@@ -2,10 +2,12 @@ import { createSlice} from "@reduxjs/toolkit";
 
 interface ToggleState {
   isActive: boolean;
+  isLoaded: boolean;
 }
 
 const initialState: ToggleState = {
   isActive: false,
+  isLoaded: false
 };
 
 const toggleSlice = createSlice({
@@ -15,9 +17,12 @@ const toggleSlice = createSlice({
     toggleActive(state) {
       state.isActive = !state.isActive;
     },
+    toggleLoaded(state) {
+      state.isLoaded = !state.isLoaded;
+    },
   },
 });
 
-export const { toggleActive } = toggleSlice.actions;
+export const { toggleActive, toggleLoaded } = toggleSlice.actions;
 
 export default toggleSlice.reducer;

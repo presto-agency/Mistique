@@ -1,12 +1,11 @@
 import type {AppProps} from "next/app"
 import "../styles/style.scss"
-import {useEffect, useState} from "react";
-import Preloader from "@/components/Preloader/Preloader";
-import {AnimatePresence} from "framer-motion";
 import {Provider} from "react-redux";
 import store from "@/store/store";
 
+
 const MyApp = ({Component, pageProps}: AppProps) => {
+
   // const [isLoading, setIsLoading] = useState(false);
   //
   // useEffect(() => {
