@@ -39,15 +39,10 @@ const Hero: React.FC<y> = ({y, sectionVariants}) => {
                   initial={animationProps.initial}
                   animate={animationProps.animate}
       />
-      <motion.div className="container"
-                  ref={ref}
-                  initial="hidden"
-                  animate={inView ? 'visible' : 'hidden'}
-                  variants={sectionVariants}
-      >
+      <div className="container" ref={ref}>
         <motion.div className={styles.hero__content} style={{y}}>
           <div className={styles.hero__content_animation}>
-            <DynamicComponent/>
+            <DynamicComponent sectionVariants={sectionVariants}/>
           </div>
           <div
             className={styles.hero__content_description}>
@@ -59,7 +54,7 @@ const Hero: React.FC<y> = ({y, sectionVariants}) => {
                     title={"Unlock the Secrets of the Tarot"}/>
           </div>
         </motion.div>
-      </motion.div>
+      </div>
     </section>
   );
 };
