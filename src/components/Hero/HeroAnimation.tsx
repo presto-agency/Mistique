@@ -2,17 +2,24 @@ import React, {useEffect} from "react";
 import {isSafari} from "react-device-detect";
 import {useClassMobile} from "@/hooks/useClassMobile";
 import {toggleLoaded} from "@/store/reducers/toggleSlice";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {motion, Variants} from "framer-motion";
 
 interface SectionVariants{
   sectionVariants: Variants
 }
 
+type ToggleState = {
+  toggle: {
+    isLoaded: boolean;
+  }
+};
+
 const HeroAnimation:React.FC<SectionVariants> = ({sectionVariants}) => {
   const movVideo = "/animations/hero-animation.mov";
   const webmVideo = "/animations/hero-animation.webm";
   const isMobile = useClassMobile(false);
+  const isLoading = useSelector<ToggleState>((state) => state.toggle.isLoaded) as boolean;
   const dispatch = useDispatch();
 
   const handleLoadedData: () => void = () => {
@@ -32,7 +39,7 @@ const HeroAnimation:React.FC<SectionVariants> = ({sectionVariants}) => {
           isSafari ? (
             <motion.video autoPlay loop muted onLoadedData={handleLoadedData}
                           initial="hidden"
-                          animate={'visible'}
+                          animate={isLoading&&'visible'}
                           variants={sectionVariants}>
               <source src={movVideo}
                       type="video/quicktime"/>
